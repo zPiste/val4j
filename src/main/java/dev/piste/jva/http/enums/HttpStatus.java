@@ -1,4 +1,4 @@
-package dev.piste.jva.http;
+package dev.piste.jva.http.enums;
 
 /**
  * @author Piste | https://github.com/PisteDev

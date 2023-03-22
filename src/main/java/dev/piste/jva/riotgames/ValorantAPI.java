@@ -3,49 +3,60 @@ package dev.piste.jva.riotgames;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import dev.piste.jva.http.RestClient;
-import dev.piste.jva.http.exceptions.HttpStatusException;
+import dev.piste.jva.http.requests.GetRequest;
+import dev.piste.jva.http.requests.RestRequest;
 import dev.piste.jva.riotgames.enums.RiotShard;
 import dev.piste.jva.riotgames.models.Content;
 import dev.piste.jva.riotgames.models.Leaderboard;
 import dev.piste.jva.riotgames.models.ShardStatus;
 import dev.piste.jva.util.Language;
 
+import java.io.IOException;
+
 /**
  * @author Piste | https://github.com/PisteDev
  */
 public class ValorantAPI {
 
+    private static final String API_KEY_HEADER = "X-Riot-Token";
+
     private final RestClient restClient;
+    private final String apiKey;
     private final Gson gson;
 
     public ValorantAPI(String apiKey, RiotShard shard) {
         String BASE_URL = String.format("https://%s.api.riotgames.com/val", shard.getId());
-        restClient = new RestClient(BASE_URL)
-                .addHeader("Content-Type", "application/json")
-                .addHeader("X-Riot-Token", apiKey);
-        gson = new GsonBuilder()
-                .setPrettyPrinting()
-                .create();
+        restClient = new RestClient(BASE_URL);
+        this.apiKey = apiKey;
+        gson = new GsonBuilder().setPrettyPrinting().create();
     }
 
-    public Content getContent(Language language) throws HttpStatusException {
-        return gson.fromJson(restClient.doGet(String.format("/content/v1/contents?locale=%s", language.getLocale())), Content.class);
+    public Content getContent(Language language) throws IOException {
+        RestRequest request = new GetRequest(String.format("/content/v1/contents?locale=%s", language.getLocale()))
+                .addHeader(API_KEY_HEADER, apiKey);
+        return gson.fromJson(restClient.sendRequest(request), Content.class);
     }
 
-    public ShardStatus getStatus() throws HttpStatusException {
-        return gson.fromJson(restClient.doGet("/status/v1/platform-data"), ShardStatus.class);
+    public ShardStatus getStatus() throws IOException {
+        RestRequest request = new GetRequest("/status/v1/platform-data")
+                .addHeader(API_KEY_HEADER, apiKey);
+        return gson.fromJson(restClient.sendRequest(request), ShardStatus.class);
     }
 
-    public Leaderboard getLeaderboard(String actUuid) throws HttpStatusException {
+    public Leaderboard getLeaderboard(String actUuid) throws IOException {
         return getLeaderboard(actUuid, 0, 0);
     }
 
-    public Leaderboard getLeaderboard(String actUuid, int size) throws HttpStatusException {
+    public Leaderboard getLeaderboard(String actUuid, int size) throws IOException {
         return getLeaderboard(actUuid, size, 0);
     }
 
-    public Leaderboard getLeaderboard(String actUuid, int size, int startIndex) throws HttpStatusException {
-        return gson.fromJson(restClient.doGet(String.format("/ranked/v1/leaderboards/by-act/%s", actUuid) + (size != 0 ? "?size=" + size : "") + (startIndex != 0 ? "?startIndex=" + startIndex : "")), Leaderboard.class);
+    public Leaderboard getLeaderboard(String actUuid, int size, int startIndex) throws IOException {
+        RestRequest request = new GetRequest(String.format("/ranked/v1/leaderboards/by-act/%s", actUuid)
+                + (size != 0 ? "?size=" + size : "")
+                + (startIndex != 0 ? "?startIndex=" + startIndex : ""))
+                .addHeader(API_KEY_HEADER, apiKey);
+        return gson.fromJson(restClient.sendRequest(request), Leaderboard.class);
     }
 
 }

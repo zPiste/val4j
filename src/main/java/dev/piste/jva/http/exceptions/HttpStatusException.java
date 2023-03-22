@@ -1,11 +1,13 @@
 package dev.piste.jva.http.exceptions;
 
-import dev.piste.jva.http.HttpStatus;
+import dev.piste.jva.http.enums.HttpStatus;
+
+import java.io.IOException;
 
 /**
  * @author Piste | https://github.com/PisteDev
  */
-public class HttpStatusException extends Exception {
+public class HttpStatusException extends IOException {
 
     private final HttpStatus status;
     private final String requestMethod;
