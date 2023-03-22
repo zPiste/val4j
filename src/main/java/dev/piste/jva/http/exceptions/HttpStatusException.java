@@ -1,6 +1,6 @@
-package dev.piste.valorantapi.http.exceptions;
+package dev.piste.jva.http.exceptions;
 
-import dev.piste.valorantapi.http.HttpStatus;
+import dev.piste.jva.http.HttpStatus;
 
 /**
  * @author Piste | https://github.com/PisteDev

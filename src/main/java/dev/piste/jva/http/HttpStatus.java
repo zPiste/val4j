@@ -1,4 +1,4 @@
-package dev.piste.valorantapi.http;
+package dev.piste.jva.http;
 
 /**
  * @author Piste | https://github.com/PisteDev

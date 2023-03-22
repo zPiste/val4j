@@ -1,14 +1,14 @@
-package dev.piste.valorantapi.riotgames;
+package dev.piste.jva.riotgames;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import dev.piste.valorantapi.http.RestClient;
-import dev.piste.valorantapi.http.exceptions.HttpStatusException;
-import dev.piste.valorantapi.riotgames.enums.RiotShard;
-import dev.piste.valorantapi.riotgames.models.Content;
-import dev.piste.valorantapi.riotgames.models.Leaderboard;
-import dev.piste.valorantapi.riotgames.models.ShardStatus;
-import dev.piste.valorantapi.util.Language;
+import dev.piste.jva.http.RestClient;
+import dev.piste.jva.http.exceptions.HttpStatusException;
+import dev.piste.jva.riotgames.enums.RiotShard;
+import dev.piste.jva.riotgames.models.Content;
+import dev.piste.jva.riotgames.models.Leaderboard;
+import dev.piste.jva.riotgames.models.ShardStatus;
+import dev.piste.jva.util.Language;
 
 /**
  * @author Piste | https://github.com/PisteDev

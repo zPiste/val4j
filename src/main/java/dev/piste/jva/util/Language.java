@@ -1,4 +1,4 @@
-package dev.piste.valorantapi.util;
+package dev.piste.jva.util;
 
 /**
  * @author Piste | https://github.com/PisteDev

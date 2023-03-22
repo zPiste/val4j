@@ -1,4 +1,4 @@
-package dev.piste.valorantapi.riotgames.models;
+package dev.piste.jva.riotgames.models;
 
 import com.google.gson.annotations.SerializedName;
 

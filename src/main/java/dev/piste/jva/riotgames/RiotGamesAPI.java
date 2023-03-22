@@ -1,12 +1,12 @@
-package dev.piste.valorantapi.riotgames;
+package dev.piste.jva.riotgames;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonObject;
-import dev.piste.valorantapi.http.RestClient;
-import dev.piste.valorantapi.http.exceptions.HttpStatusException;
-import dev.piste.valorantapi.riotgames.enums.RiotShard;
-import dev.piste.valorantapi.riotgames.models.RiotAccount;
+import dev.piste.jva.http.RestClient;
+import dev.piste.jva.http.exceptions.HttpStatusException;
+import dev.piste.jva.riotgames.enums.RiotShard;
+import dev.piste.jva.riotgames.models.RiotAccount;
 
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;

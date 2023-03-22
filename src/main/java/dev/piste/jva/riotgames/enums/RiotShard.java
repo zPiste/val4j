@@ -1,4 +1,4 @@
-package dev.piste.valorantapi.riotgames.enums;
+package dev.piste.jva.riotgames.enums;
 
 /**
  * @author Piste | https://github.com/PisteDev

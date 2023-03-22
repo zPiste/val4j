@@ -1,4 +1,4 @@
-package dev.piste.valorantapi.http;
+package dev.piste.jva.http;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -6,7 +6,7 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import com.google.gson.stream.JsonWriter;
 import com.google.gson.stream.MalformedJsonException;
-import dev.piste.valorantapi.http.exceptions.HttpStatusException;
+import dev.piste.jva.http.exceptions.HttpStatusException;
 
 import java.io.IOException;
 import java.io.StringWriter;
