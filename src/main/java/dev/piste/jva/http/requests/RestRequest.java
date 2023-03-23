@@ -17,7 +17,7 @@ public abstract class RestRequest {
     private final ContentType contentType;
     private final Map<String, String> headers;
 
-    public RestRequest(String path, HttpMethod method, String body, ContentType contentType) {
+    protected RestRequest(String path, HttpMethod method, String body, ContentType contentType) {
         this.path = path;
         this.method = method;
         this.body = body;

@@ -8,6 +8,7 @@ import dev.piste.jva.http.requests.RestRequest;
 import dev.piste.jva.riotgames.enums.RiotShard;
 import dev.piste.jva.riotgames.models.Content;
 import dev.piste.jva.riotgames.models.Leaderboard;
+import dev.piste.jva.riotgames.models.MatchListEntry;
 import dev.piste.jva.riotgames.models.ShardStatus;
 import dev.piste.jva.util.Language;
 
@@ -58,5 +59,19 @@ public class ValorantAPI {
                 .addHeader(API_KEY_HEADER, apiKey);
         return gson.fromJson(restClient.sendRequest(request), Leaderboard.class);
     }
+
+    public String[] getRecentMatchUUIDs(String queueId) throws IOException {
+        RestRequest request = new GetRequest(String.format("/match/v1/recent-matches/by-queue/%s", queueId))
+                .addHeader(API_KEY_HEADER, apiKey);
+        return gson.fromJson(restClient.sendRequest(request).get("matchIds").getAsJsonArray(), String[].class);
+    }
+
+    public MatchListEntry[] getMatchList(String puuid) throws IOException {
+        RestRequest request = new GetRequest(String.format("/match/v1/matchlists/by-puuid/%s", puuid))
+                .addHeader(API_KEY_HEADER, apiKey);
+        return gson.fromJson(restClient.sendRequest(request).get("history").getAsJsonArray(), MatchListEntry[].class);
+    }
+
+
 
 }

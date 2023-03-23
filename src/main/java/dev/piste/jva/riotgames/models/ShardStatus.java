@@ -20,6 +20,22 @@ public class ShardStatus {
     @SerializedName("maintenances")
     private Maintenance[] maintenances;
 
+    public String getShardId() {
+        return shardId;
+    }
+
+    public String getShardName() {
+        return shardName;
+    }
+
+    public String[] getLocales() {
+        return locales;
+    }
+
+    public Maintenance[] getMaintenances() {
+        return maintenances;
+    }
+
     public static class Maintenance {
 
         @SerializedName("id")
