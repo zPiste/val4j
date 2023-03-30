@@ -7,7 +7,6 @@ public enum Language {
 
     ARABIC("ar-AE"),
     GERMAN("de-DE"),
-    ENGLISH_UK("en-GB"),
     ENGLISH_US("en-US"),
     SPANISH("es-ES"),
     SPANISH_MX("es-MX"),

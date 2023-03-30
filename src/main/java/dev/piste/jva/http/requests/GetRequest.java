@@ -7,8 +7,8 @@ import dev.piste.jva.http.enums.HttpMethod;
  */
 public class GetRequest extends RestRequest {
 
-    public GetRequest(String path) {
-        super(path, HttpMethod.GET, null, null);
+    public GetRequest() {
+        super(HttpMethod.GET, null, null);
     }
 
 }

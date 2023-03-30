@@ -8,8 +8,8 @@ import dev.piste.jva.http.enums.HttpMethod;
  */
 public class PostRequest extends RestRequest {
 
-    public PostRequest(String path, String body, ContentType contentType) {
-        super(path, HttpMethod.POST, body, contentType);
+    public PostRequest(String body, ContentType contentType) {
+        super(HttpMethod.POST, body, contentType);
     }
 
 }

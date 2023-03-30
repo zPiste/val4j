@@ -1,7 +1,7 @@
 package dev.piste.jva.http.enums;
 
 /**
- * @author Piste | https://github.com/PisteDev
+ * @author Piste | <a href="https://github.com/PisteDev">GitHub</a>
  */
 public enum HttpMethod {
 
