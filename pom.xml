@@ -7,7 +7,7 @@
     <!-- Project Information -->
 
     <groupId>dev.piste</groupId>
-    <artifactId>Java-VALORANT-API</artifactId>
+    <artifactId>JVA</artifactId>
     <version>0.0.1</version>
     <packaging>jar</packaging>
 
