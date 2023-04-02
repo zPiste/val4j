@@ -7,13 +7,13 @@ import dev.piste.api.val4j.apis.officer.models.*;
 import dev.piste.api.val4j.http.RestClient;
 import dev.piste.api.val4j.http.requests.GetRequestBuilder;
 import dev.piste.api.val4j.http.requests.RestRequestBuilder;
-import dev.piste.api.val4j.util.JVALanguage;
+import dev.piste.api.val4j.util.APILanguage;
 
 import java.io.IOException;
 import java.time.LocalDateTime;
 
 /**
- * @author Piste | https://github.com/PisteDev
+ * @author Piste  (<a href="https://github.com/PisteDev">GitHub</a>)
  */
 public class OfficerAPI {
 
@@ -31,7 +31,7 @@ public class OfficerAPI {
         return getPlayableAgents(null);
     }
 
-    public Agent[] getPlayableAgents(JVALanguage language) throws IOException {
+    public Agent[] getPlayableAgents(APILanguage language) throws IOException {
         return getElement(new GetRequestBuilder().addPath("v1").addPath("agents").addParameter("isPlayableCharacter", "true"), language, Agent[].class);
     }
 
@@ -39,7 +39,7 @@ public class OfficerAPI {
         return getAgents(null);
     }
 
-    public Agent[] getAgents(JVALanguage language) throws IOException {
+    public Agent[] getAgents(APILanguage language) throws IOException {
         return getElement(new GetRequestBuilder().addPath("v1").addPath("agents"), language, Agent[].class);
     }
 
@@ -47,7 +47,7 @@ public class OfficerAPI {
         return getAgent(uuid, null);
     }
 
-    public Agent getAgent(String uuid, JVALanguage language) throws IOException {
+    public Agent getAgent(String uuid, APILanguage language) throws IOException {
         return getElement(new GetRequestBuilder().addPath("v1").addPath("agents").addPath(uuid), language, Agent.class);
     }
 
@@ -56,7 +56,7 @@ public class OfficerAPI {
         return getBuddies(null);
     }
 
-    public Buddy[] getBuddies(JVALanguage language) throws IOException {
+    public Buddy[] getBuddies(APILanguage language) throws IOException {
         return getElement(new GetRequestBuilder().addPath("v1").addPath("buddies"), language, Buddy[].class);
     }
 
@@ -64,7 +64,7 @@ public class OfficerAPI {
         return getBuddy(uuid, null);
     }
 
-    public Buddy getBuddy(String uuid, JVALanguage language) throws IOException {
+    public Buddy getBuddy(String uuid, APILanguage language) throws IOException {
         return getElement(new GetRequestBuilder().addPath("v1").addPath("buddies").addPath(uuid), language, Buddy.class);
     }
 
@@ -73,7 +73,7 @@ public class OfficerAPI {
         return getBuddyLevels(null);
     }
 
-    public Buddy.Level[] getBuddyLevels(JVALanguage language) throws IOException {
+    public Buddy.Level[] getBuddyLevels(APILanguage language) throws IOException {
         return getElement(new GetRequestBuilder().addPath("v1").addPath("buddies").addPath("levels"), language, Buddy.Level[].class);
     }
 
@@ -81,7 +81,7 @@ public class OfficerAPI {
         return getBuddyLevel(uuid, null);
     }
 
-    public Buddy.Level getBuddyLevel(String uuid, JVALanguage language) throws IOException {
+    public Buddy.Level getBuddyLevel(String uuid, APILanguage language) throws IOException {
         return getElement(new GetRequestBuilder().addPath("v1").addPath("buddies").addPath("levels").addPath(uuid), language, Buddy.Level.class);
     }
 
@@ -90,7 +90,7 @@ public class OfficerAPI {
         return getBundles(null);
     }
 
-    public Bundle[] getBundles(JVALanguage language) throws IOException {
+    public Bundle[] getBundles(APILanguage language) throws IOException {
         return getElement(new GetRequestBuilder().addPath("v1").addPath("bundles"), language, Bundle[].class);
     }
 
@@ -98,7 +98,7 @@ public class OfficerAPI {
         return getBundle(uuid, null);
     }
 
-    public Bundle getBundle(String uuid, JVALanguage language) throws IOException {
+    public Bundle getBundle(String uuid, APILanguage language) throws IOException {
         return getElement(new GetRequestBuilder().addPath("v1").addPath("bundles").addPath(uuid), language, Bundle.class);
     }
 
@@ -107,7 +107,7 @@ public class OfficerAPI {
         return getCeremonies(null);
     }
 
-    public Ceremony[] getCeremonies(JVALanguage language) throws IOException {
+    public Ceremony[] getCeremonies(APILanguage language) throws IOException {
         return getElement(new GetRequestBuilder().addPath("v1").addPath("ceremonies"), language, Ceremony[].class);
     }
 
@@ -115,7 +115,7 @@ public class OfficerAPI {
         return getCeremony(uuid, null);
     }
 
-    public Ceremony getCeremony(String uuid, JVALanguage language) throws IOException {
+    public Ceremony getCeremony(String uuid, APILanguage language) throws IOException {
         return getElement(new GetRequestBuilder().addPath("v1").addPath("ceremonies").addPath(uuid), language, Ceremony.class);
     }
 
@@ -124,7 +124,7 @@ public class OfficerAPI {
         return getCompetitiveTierTables(null);
     }
 
-    public CompetitiveTierTable[] getCompetitiveTierTables(JVALanguage language) throws IOException {
+    public CompetitiveTierTable[] getCompetitiveTierTables(APILanguage language) throws IOException {
         return getElement(new GetRequestBuilder().addPath("v1").addPath("competitivetiers"), language, CompetitiveTierTable[].class);
     }
 
@@ -132,7 +132,7 @@ public class OfficerAPI {
         return getCompetitiveTierTable(uuid, null);
     }
 
-    public CompetitiveTierTable getCompetitiveTierTable(String uuid, JVALanguage language) throws IOException {
+    public CompetitiveTierTable getCompetitiveTierTable(String uuid, APILanguage language) throws IOException {
         return getElement(new GetRequestBuilder().addPath("v1").addPath("competitivetiers").addPath(uuid), language, CompetitiveTierTable.class);
     }
 
@@ -140,7 +140,7 @@ public class OfficerAPI {
         return getCurrentCompetitiveTierTable(null);
     }
 
-    public CompetitiveTierTable getCurrentCompetitiveTierTable(JVALanguage language) throws IOException {
+    public CompetitiveTierTable getCurrentCompetitiveTierTable(APILanguage language) throws IOException {
         for(CompetitiveSeason competitiveSeason : getCompetitiveSeasons()) {
             if(LocalDateTime.now().isAfter(competitiveSeason.getStartDateTime()) && LocalDateTime.now().isBefore(competitiveSeason.getEndDateTime())) {
                 return getCompetitiveTierTable(competitiveSeason.getCompetitiveTierUUID(), language);
@@ -154,7 +154,7 @@ public class OfficerAPI {
         return getContentTiers(null);
     }
 
-    public ContentTier[] getContentTiers(JVALanguage language) throws IOException {
+    public ContentTier[] getContentTiers(APILanguage language) throws IOException {
         return getElement(new GetRequestBuilder().addPath("v1").addPath("contenttiers"), language, ContentTier[].class);
     }
 
@@ -162,7 +162,7 @@ public class OfficerAPI {
         return getContentTier(uuid, null);
     }
 
-    public ContentTier getContentTier(String uuid, JVALanguage language) throws IOException {
+    public ContentTier getContentTier(String uuid, APILanguage language) throws IOException {
         return getElement(new GetRequestBuilder().addPath("v1").addPath("contenttiers").addPath(uuid), language, ContentTier.class);
     }
 
@@ -171,7 +171,7 @@ public class OfficerAPI {
         return getContracts(null);
     }
 
-    public Contract[] getContracts(JVALanguage language) throws IOException {
+    public Contract[] getContracts(APILanguage language) throws IOException {
         return getElement(new GetRequestBuilder().addPath("v1").addPath("contracts"), language, Contract[].class);
     }
 
@@ -179,7 +179,7 @@ public class OfficerAPI {
         return getContract(uuid, null);
     }
 
-    public Contract getContract(String uuid, JVALanguage language) throws IOException {
+    public Contract getContract(String uuid, APILanguage language) throws IOException {
         return getElement(new GetRequestBuilder().addPath("v1").addPath("contracts").addPath(uuid), language, Contract.class);
     }
 
@@ -188,7 +188,7 @@ public class OfficerAPI {
         return getCurrencies(null);
     }
 
-    public Currency[] getCurrencies(JVALanguage language) throws IOException {
+    public Currency[] getCurrencies(APILanguage language) throws IOException {
         return getElement(new GetRequestBuilder().addPath("v1").addPath("currencies"), language, Currency[].class);
     }
 
@@ -196,7 +196,7 @@ public class OfficerAPI {
         return getCurrency(uuid, null);
     }
 
-    public Currency getCurrency(String uuid, JVALanguage language) throws IOException {
+    public Currency getCurrency(String uuid, APILanguage language) throws IOException {
         return getElement(new GetRequestBuilder().addPath("v1").addPath("currencies").addPath(uuid), language, Currency.class);
     }
 
@@ -205,7 +205,7 @@ public class OfficerAPI {
         return getEvents(null);
     }
 
-    public Event[] getEvents(JVALanguage language) throws IOException {
+    public Event[] getEvents(APILanguage language) throws IOException {
         return getElement(new GetRequestBuilder().addPath("v1").addPath("events"), language, Event[].class);
     }
 
@@ -213,7 +213,7 @@ public class OfficerAPI {
         return getEvent(uuid, null);
     }
 
-    public Event getEvent(String uuid, JVALanguage language) throws IOException {
+    public Event getEvent(String uuid, APILanguage language) throws IOException {
         return getElement(new GetRequestBuilder().addPath("v1").addPath("events").addPath(uuid), language, Event.class);
     }
 
@@ -222,7 +222,7 @@ public class OfficerAPI {
         return getGameModes(null);
     }
 
-    public GameMode[] getGameModes(JVALanguage language) throws IOException {
+    public GameMode[] getGameModes(APILanguage language) throws IOException {
         return getElement(new GetRequestBuilder().addPath("v1").addPath("gamemodes"), language, GameMode[].class);
     }
 
@@ -230,7 +230,7 @@ public class OfficerAPI {
         return getGameMode(uuid, null);
     }
 
-    public GameMode getGameMode(String uuid, JVALanguage language) throws IOException {
+    public GameMode getGameMode(String uuid, APILanguage language) throws IOException {
         return getElement(new GetRequestBuilder().addPath("v1").addPath("gamemodes").addPath(uuid), language, GameMode.class);
     }
 
@@ -239,7 +239,7 @@ public class OfficerAPI {
         return getQueues(null);
     }
 
-    public Queue[] getQueues(JVALanguage language) throws IOException {
+    public Queue[] getQueues(APILanguage language) throws IOException {
         return getElement(new GetRequestBuilder().addPath("v1").addPath("gamemodes").addPath("queues"), language, Queue[].class);
     }
 
@@ -247,7 +247,7 @@ public class OfficerAPI {
         return getQueue(uuid, null);
     }
 
-    public Queue getQueue(String uuid, JVALanguage language) throws IOException {
+    public Queue getQueue(String uuid, APILanguage language) throws IOException {
         return getElement(new GetRequestBuilder().addPath("v1").addPath("gamemodes").addPath("queues").addPath(uuid), language, Queue.class);
     }
 
@@ -256,7 +256,7 @@ public class OfficerAPI {
         return getEquippables(null);
     }
 
-    public Equippable[] getEquippables(JVALanguage language) throws IOException {
+    public Equippable[] getEquippables(APILanguage language) throws IOException {
         return getElement(new GetRequestBuilder().addPath("v1").addPath("gamemodes").addPath("equippables"), language, Equippable[].class);
     }
 
@@ -264,16 +264,16 @@ public class OfficerAPI {
         return getEquippable(uuid, null);
     }
 
-    public Equippable getEquippable(String uuid, JVALanguage language) throws IOException {
+    public Equippable getEquippable(String uuid, APILanguage language) throws IOException {
         return getElement(new GetRequestBuilder().addPath("v1").addPath("gamemodes").addPath("equippables").addPath(uuid), language, Equippable.class);
     }
 
 
     public Gear[] getGear() throws IOException {
-        return getGear((JVALanguage) null);
+        return getGear((APILanguage) null);
     }
 
-    public Gear[] getGear(JVALanguage language) throws IOException {
+    public Gear[] getGear(APILanguage language) throws IOException {
         return getElement(new GetRequestBuilder().addPath("v1").addPath("gear"), language, Gear[].class);
     }
 
@@ -281,7 +281,7 @@ public class OfficerAPI {
         return getGear(uuid, null);
     }
 
-    public Gear getGear(String uuid, JVALanguage language) throws IOException {
+    public Gear getGear(String uuid, APILanguage language) throws IOException {
         return getElement(new GetRequestBuilder().addPath("v1").addPath("gear").addPath(uuid), language, Gear.class);
     }
 
@@ -290,7 +290,7 @@ public class OfficerAPI {
         return getLevelBorders(null);
     }
 
-    public LevelBorder[] getLevelBorders(JVALanguage language) throws IOException {
+    public LevelBorder[] getLevelBorders(APILanguage language) throws IOException {
         return getElement(new GetRequestBuilder().addPath("v1").addPath("levelborders"), language, LevelBorder[].class);
     }
 
@@ -298,7 +298,7 @@ public class OfficerAPI {
         return getLevelBorder(uuid, null);
     }
 
-    public LevelBorder getLevelBorder(String uuid, JVALanguage language) throws IOException {
+    public LevelBorder getLevelBorder(String uuid, APILanguage language) throws IOException {
         return getElement(new GetRequestBuilder().addPath("v1").addPath("levelborders").addPath(uuid), language, LevelBorder.class);
     }
 
@@ -307,7 +307,7 @@ public class OfficerAPI {
         return getMaps(null);
     }
 
-    public Map[] getMaps(JVALanguage language) throws IOException {
+    public Map[] getMaps(APILanguage language) throws IOException {
         return getElement(new GetRequestBuilder().addPath("v1").addPath("maps"), language, Map[].class);
     }
 
@@ -315,7 +315,7 @@ public class OfficerAPI {
         return getMap(uuid, null);
     }
 
-    public Map getMap(String uuid, JVALanguage language) throws IOException {
+    public Map getMap(String uuid, APILanguage language) throws IOException {
         return getElement(new GetRequestBuilder().addPath("v1").addPath("maps").addPath(uuid), language, Map.class);
     }
 
@@ -324,7 +324,7 @@ public class OfficerAPI {
         return getPlayerCards(null);
     }
 
-    public PlayerCard[] getPlayerCards(JVALanguage language) throws IOException {
+    public PlayerCard[] getPlayerCards(APILanguage language) throws IOException {
         return getElement(new GetRequestBuilder().addPath("v1").addPath("playercards"), language, PlayerCard[].class);
     }
 
@@ -332,7 +332,7 @@ public class OfficerAPI {
         return getPlayerCard(uuid, null);
     }
 
-    public PlayerCard getPlayerCard(String uuid, JVALanguage language) throws IOException {
+    public PlayerCard getPlayerCard(String uuid, APILanguage language) throws IOException {
         return getElement(new GetRequestBuilder().addPath("v1").addPath("playercards").addPath(uuid), language, PlayerCard.class);
     }
 
@@ -341,7 +341,7 @@ public class OfficerAPI {
         return getPlayerTitles(null);
     }
 
-    public PlayerTitle[] getPlayerTitles(JVALanguage language) throws IOException {
+    public PlayerTitle[] getPlayerTitles(APILanguage language) throws IOException {
         return getElement(new GetRequestBuilder().addPath("v1").addPath("playertitles"), language, PlayerTitle[].class);
     }
 
@@ -349,7 +349,7 @@ public class OfficerAPI {
         return getPlayerTitle(uuid, null);
     }
 
-    public PlayerTitle getPlayerTitle(String uuid, JVALanguage language) throws IOException {
+    public PlayerTitle getPlayerTitle(String uuid, APILanguage language) throws IOException {
         return getElement(new GetRequestBuilder().addPath("v1").addPath("playertitles").addPath(uuid), language, PlayerTitle.class);
     }
 
@@ -358,7 +358,7 @@ public class OfficerAPI {
         return getSeasons(null);
     }
 
-    public Season[] getSeasons(JVALanguage language) throws IOException {
+    public Season[] getSeasons(APILanguage language) throws IOException {
         return getElement(new GetRequestBuilder().addPath("v1").addPath("seasons"), language, Season[].class);
     }
 
@@ -366,7 +366,7 @@ public class OfficerAPI {
         return getSeason(uuid, null);
     }
 
-    public Season getSeason(String uuid, JVALanguage language) throws IOException {
+    public Season getSeason(String uuid, APILanguage language) throws IOException {
         return getElement(new GetRequestBuilder().addPath("v1").addPath("seasons").addPath(uuid), language, Season.class);
     }
 
@@ -375,7 +375,7 @@ public class OfficerAPI {
         return getCompetitiveSeasons(null);
     }
 
-    public CompetitiveSeason[] getCompetitiveSeasons(JVALanguage language) throws IOException {
+    public CompetitiveSeason[] getCompetitiveSeasons(APILanguage language) throws IOException {
         return getElement(new GetRequestBuilder().addPath("v1").addPath("seasons").addPath("competitive"), language, CompetitiveSeason[].class);
     }
 
@@ -383,7 +383,7 @@ public class OfficerAPI {
         return getCompetitiveSeason(uuid, null);
     }
 
-    public CompetitiveSeason getCompetitiveSeason(String uuid, JVALanguage language) throws IOException {
+    public CompetitiveSeason getCompetitiveSeason(String uuid, APILanguage language) throws IOException {
         return getElement(new GetRequestBuilder().addPath("v1").addPath("seasons").addPath("competitive").addPath(uuid), language, CompetitiveSeason.class);
     }
 
@@ -392,7 +392,7 @@ public class OfficerAPI {
         return getSprays(null);
     }
 
-    public Spray[] getSprays(JVALanguage language) throws IOException {
+    public Spray[] getSprays(APILanguage language) throws IOException {
         return getElement(new GetRequestBuilder().addPath("v1").addPath("sprays"), language, Spray[].class);
     }
 
@@ -400,7 +400,7 @@ public class OfficerAPI {
         return getSpray(uuid, null);
     }
 
-    public Spray getSpray(String uuid, JVALanguage language) throws IOException {
+    public Spray getSpray(String uuid, APILanguage language) throws IOException {
         return getElement(new GetRequestBuilder().addPath("v1").addPath("sprays").addPath(uuid), language, Spray.class);
     }
 
@@ -409,7 +409,7 @@ public class OfficerAPI {
         return getSprayLevels(null);
     }
 
-    public Spray.Level[] getSprayLevels(JVALanguage language) throws IOException {
+    public Spray.Level[] getSprayLevels(APILanguage language) throws IOException {
         return getElement(new GetRequestBuilder().addPath("v1").addPath("sprays").addPath("levels"), language, Spray.Level[].class);
     }
 
@@ -417,7 +417,7 @@ public class OfficerAPI {
         return getSprayLevel(uuid, null);
     }
 
-    public Spray.Level getSprayLevel(String uuid, JVALanguage language) throws IOException {
+    public Spray.Level getSprayLevel(String uuid, APILanguage language) throws IOException {
         return getElement(new GetRequestBuilder().addPath("v1").addPath("sprays").addPath("levels").addPath(uuid), language, Spray.Level.class);
     }
 
@@ -426,7 +426,7 @@ public class OfficerAPI {
         return getThemes(null);
     }
 
-    public Theme[] getThemes(JVALanguage language) throws IOException {
+    public Theme[] getThemes(APILanguage language) throws IOException {
         return getElement(new GetRequestBuilder().addPath("v1").addPath("themes"), language, Theme[].class);
     }
 
@@ -434,7 +434,7 @@ public class OfficerAPI {
         return getTheme(uuid, null);
     }
 
-    public Theme getTheme(String uuid, JVALanguage language) throws IOException {
+    public Theme getTheme(String uuid, APILanguage language) throws IOException {
         return getElement(new GetRequestBuilder().addPath("v1").addPath("themes").addPath(uuid), language, Theme.class);
     }
 
@@ -443,7 +443,7 @@ public class OfficerAPI {
         return getWeapons(null);
     }
 
-    public Weapon[] getWeapons(JVALanguage language) throws IOException {
+    public Weapon[] getWeapons(APILanguage language) throws IOException {
         return getElement(new GetRequestBuilder().addPath("v1").addPath("weapons"), language, Weapon[].class);
     }
 
@@ -451,7 +451,7 @@ public class OfficerAPI {
         return getWeapon(uuid, null);
     }
 
-    public Weapon getWeapon(String uuid, JVALanguage language) throws IOException {
+    public Weapon getWeapon(String uuid, APILanguage language) throws IOException {
         return getElement(new GetRequestBuilder().addPath("v1").addPath("weapons").addPath(uuid), language, Weapon.class);
     }
 
@@ -460,7 +460,7 @@ public class OfficerAPI {
         return getWeaponSkins(null);
     }
 
-    public WeaponSkin[] getWeaponSkins(JVALanguage language) throws IOException {
+    public WeaponSkin[] getWeaponSkins(APILanguage language) throws IOException {
         return getElement(new GetRequestBuilder().addPath("v1").addPath("weapons").addPath("skins"), language, WeaponSkin[].class);
     }
 
@@ -468,7 +468,7 @@ public class OfficerAPI {
         return getWeaponSkin(uuid, null);
     }
 
-    public WeaponSkin getWeaponSkin(String uuid, JVALanguage language) throws IOException {
+    public WeaponSkin getWeaponSkin(String uuid, APILanguage language) throws IOException {
         return getElement(new GetRequestBuilder().addPath("v1").addPath("weapons").addPath("skins").addPath(uuid), language, WeaponSkin.class);
     }
 
@@ -477,7 +477,7 @@ public class OfficerAPI {
         return getWeaponSkinChromas(null);
     }
 
-    public WeaponSkin.Chroma[] getWeaponSkinChromas(JVALanguage language) throws IOException {
+    public WeaponSkin.Chroma[] getWeaponSkinChromas(APILanguage language) throws IOException {
         return getElement(new GetRequestBuilder().addPath("v1").addPath("weapons").addPath("skinchromas"), language, WeaponSkin.Chroma[].class);
     }
 
@@ -485,7 +485,7 @@ public class OfficerAPI {
         return getWeaponSkinChroma(uuid, null);
     }
 
-    public WeaponSkin.Chroma getWeaponSkinChroma(String uuid, JVALanguage language) throws IOException {
+    public WeaponSkin.Chroma getWeaponSkinChroma(String uuid, APILanguage language) throws IOException {
         return getElement(new GetRequestBuilder().addPath("v1").addPath("weapons").addPath("skinchromas").addPath(uuid), language, WeaponSkin.Chroma.class);
     }
 
@@ -494,7 +494,7 @@ public class OfficerAPI {
         return getWeaponSkinLevels(null);
     }
 
-    public WeaponSkin.Level[] getWeaponSkinLevels(JVALanguage language) throws IOException {
+    public WeaponSkin.Level[] getWeaponSkinLevels(APILanguage language) throws IOException {
         return getElement(new GetRequestBuilder().addPath("v1").addPath("weapons").addPath("skinlevels"), language, WeaponSkin.Level[].class);
     }
 
@@ -502,7 +502,7 @@ public class OfficerAPI {
         return getWeaponSkinLevel(uuid, null);
     }
 
-    public WeaponSkin.Level getWeaponSkinLevel(String uuid, JVALanguage language) throws IOException {
+    public WeaponSkin.Level getWeaponSkinLevel(String uuid, APILanguage language) throws IOException {
         return getElement(new GetRequestBuilder().addPath("v1").addPath("weapons").addPath("skinlevels").addPath(uuid), language, WeaponSkin.Level.class);
     }
 
@@ -510,7 +510,7 @@ public class OfficerAPI {
         return getElement(new GetRequestBuilder().addPath("v1").addPath("version"), null, Version.class);
     }
 
-    private <T> T getElement(RestRequestBuilder requestBuilder, JVALanguage language, Class<T> clazz) throws IOException {
+    private <T> T getElement(RestRequestBuilder requestBuilder, APILanguage language, Class<T> clazz) throws IOException {
         if(language != null)
             requestBuilder.addParameter("language", language.getLocale());
         JsonElement element = restClient.sendRequest(requestBuilder.build()).get("data");

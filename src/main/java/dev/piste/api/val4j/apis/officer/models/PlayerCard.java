@@ -3,7 +3,7 @@ package dev.piste.api.val4j.apis.officer.models;
 import com.google.gson.annotations.SerializedName;
 
 /**
- * @author Piste | https://github.com/PisteDev
+ * @author Piste  (<a href="https://github.com/PisteDev">GitHub</a>)
  */
 @SuppressWarnings("unused")
 public class PlayerCard {

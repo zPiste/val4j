@@ -5,7 +5,7 @@ import dev.piste.api.val4j.http.enums.HttpStatus;
 import java.io.IOException;
 
 /**
- * @author Piste | https://github.com/PisteDev
+ * @author Piste  (<a href="https://github.com/PisteDev">GitHub</a>)
  */
 public class HttpStatusException extends IOException {
 

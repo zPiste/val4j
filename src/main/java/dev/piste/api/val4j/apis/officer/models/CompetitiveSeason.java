@@ -6,7 +6,7 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 /**
- * @author Piste | https://github.com/PisteDev
+ * @author Piste  (<a href="https://github.com/PisteDev">GitHub</a>)
  */
 @SuppressWarnings("unused")
 public class CompetitiveSeason {

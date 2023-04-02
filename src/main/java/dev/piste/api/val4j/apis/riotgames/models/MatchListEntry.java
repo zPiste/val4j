@@ -6,7 +6,7 @@ import java.time.LocalDateTime;
 import java.time.ZoneOffset;
 
 /**
- * @author Piste | https://github.com/PisteDev
+ * @author Piste  (<a href="https://github.com/PisteDev">GitHub</a>)
  */
 public class MatchListEntry {
 
@@ -14,8 +14,8 @@ public class MatchListEntry {
     private String matchUuid;
     @SerializedName("gameStartTimeMillis")
     private long gameStartTimeMillis;
-    @SerializedName("teamId")
-    private String teamId;
+    @SerializedName("queueId")
+    private String queueId;
 
     public String getMatchUUID() {
         return matchUuid;
@@ -25,8 +25,7 @@ public class MatchListEntry {
         return LocalDateTime.ofEpochSecond(gameStartTimeMillis / 1000, 0, ZoneOffset.UTC);
     }
 
-    public String getTeamId() {
-        return teamId;
+    public String getQueueID() {
+        return queueId;
     }
-
 }

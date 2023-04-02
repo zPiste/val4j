@@ -14,7 +14,7 @@ import dev.piste.api.val4j.http.requests.RestRequest;
 import java.io.IOException;
 
 /**
- * @author Piste | https://github.com/PisteDev
+ * @author Piste  (<a href="https://github.com/PisteDev">GitHub</a>)
  */
 public class RiotGamesAPI {
 
@@ -25,7 +25,7 @@ public class RiotGamesAPI {
     private final Gson gson;
 
     public RiotGamesAPI(String apiKey, Cluster cluster) {
-        String BASE_URL = String.format("https://%s.api.riotgames.com/riot", cluster.getId());
+        String BASE_URL = String.format("https://%s.api.riotgames.com/riot", cluster.getID());
         restClient = new RestClient(BASE_URL);
         this.apiKey = apiKey;
         gson = new GsonBuilder().setPrettyPrinting().create();
@@ -94,7 +94,7 @@ public class RiotGamesAPI {
             this.id = id;
         }
 
-        public String getId() {
+        public String getID() {
             return id;
         }
 

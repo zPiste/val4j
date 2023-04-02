@@ -20,6 +20,9 @@ import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.util.Map;
 
+/**
+ * @author Piste  (<a href="https://github.com/PisteDev">GitHub</a>)
+ */
 public class RestClient {
 
     private final String baseUrl;
@@ -34,7 +37,6 @@ public class RestClient {
 
     public JsonObject sendRequest(RestRequest restRequest) throws IOException {
         HttpRequest httpRequest = createHttpRequest(restRequest.getPath(), restRequest.getMethod(), restRequest.getBody(), restRequest.getContentType(), restRequest.getHeaders());
-        System.out.println("Sending request to " + baseUrl + restRequest.getPath() + " with method " + restRequest.getMethod());
         try {
             HttpResponse<String> response = httpClient.send(httpRequest, HttpResponse.BodyHandlers.ofString());
             if (!isValidJson(response.body())) {

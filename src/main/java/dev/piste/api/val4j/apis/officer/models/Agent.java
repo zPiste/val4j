@@ -4,7 +4,7 @@ import com.google.gson.annotations.SerializedName;
 import dev.piste.api.val4j.apis.officer.enums.AbilitySlot;
 
 /**
- * @author Piste | https://github.com/PisteDev
+ * @author Piste  (<a href="https://github.com/PisteDev">GitHub</a>)
  */
 @SuppressWarnings("unused")
 public class Agent {

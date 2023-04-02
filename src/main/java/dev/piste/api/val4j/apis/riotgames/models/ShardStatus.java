@@ -6,7 +6,7 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 /**
- * @author Piste | https://github.com/PisteDev
+ * @author Piste  (<a href="https://github.com/PisteDev">GitHub</a>)
  */
 @SuppressWarnings("unused")
 public class ShardStatus {
@@ -20,7 +20,7 @@ public class ShardStatus {
     @SerializedName("maintenances")
     private Maintenance[] maintenances;
 
-    public String getShardId() {
+    public String getShardID() {
         return shardId;
     }
 
@@ -55,12 +55,12 @@ public class ShardStatus {
         @SerializedName("platforms")
         private String[] platformsAsString;
 
-        public int getId() {
+        public int getID() {
             return id;
         }
 
         public Status getStatus() {
-            return Status.fromId(statusAsString);
+            return Status.ofID(statusAsString);
         }
 
         public Translation[] getTitles() {
@@ -86,7 +86,7 @@ public class ShardStatus {
         public Platform[] getPlatforms() {
             Platform[] platforms = new Platform[platformsAsString.length];
             for(int i = 0; i < platformsAsString.length; i++) {
-                platforms[i] = Platform.fromId(platformsAsString[i]);
+                platforms[i] = Platform.ofID(platformsAsString[i]);
             }
             return platforms;
         }
@@ -103,13 +103,13 @@ public class ShardStatus {
                 this.id = id;
             }
 
-            public String getId() {
+            public String getID() {
                 return id;
             }
 
-            public static Status fromId(String id) {
+            public static Status ofID(String id) {
                 for (Status status : values()) {
-                    if (status.getId().equals(id)) {
+                    if (status.getID().equals(id)) {
                         return status;
                     }
                 }
@@ -139,12 +139,12 @@ public class ShardStatus {
         @SerializedName("platforms")
         private String[] platformsAsString;
 
-        public int getId() {
+        public int getID() {
             return id;
         }
 
         public Severity getSeverity() {
-            return Severity.fromId(severityAsString);
+            return Severity.ofID(severityAsString);
         }
 
         public Translation[] getTitles() {
@@ -170,7 +170,7 @@ public class ShardStatus {
         public Platform[] getPlatforms() {
             Platform[] platforms = new Platform[platformsAsString.length];
             for(int i = 0; i < platformsAsString.length; i++) {
-                platforms[i] = Platform.fromId(platformsAsString[i]);
+                platforms[i] = Platform.ofID(platformsAsString[i]);
             }
             return platforms;
         }
@@ -187,13 +187,13 @@ public class ShardStatus {
                 this.id = id;
             }
 
-            public String getId() {
+            public String getID() {
                 return id;
             }
 
-            public static Severity fromId(String id) {
+            public static Severity ofID(String id) {
                 for (Severity severity : values()) {
-                    if (severity.getId().equals(id)) {
+                    if (severity.getID().equals(id)) {
                         return severity;
                     }
                 }
@@ -238,7 +238,7 @@ public class ShardStatus {
         @SerializedName("updated_at")
         private String updationDateAsString;
 
-        public int getId() {
+        public int getID() {
             return id;
         }
 
@@ -253,7 +253,7 @@ public class ShardStatus {
         public PublishLocation[] getPublishLocations() {
             PublishLocation[] publishLocations = new PublishLocation[publishLocationsAsString.length];
             for (int i = 0; i < publishLocationsAsString.length; i++) {
-                publishLocations[i] = PublishLocation.fromId(publishLocationsAsString[i]);
+                publishLocations[i] = PublishLocation.ofID(publishLocationsAsString[i]);
             }
             return publishLocations;
         }
@@ -282,13 +282,13 @@ public class ShardStatus {
                 this.id = id;
             }
 
-            public String getId() {
+            public String getID() {
                 return id;
             }
 
-            public static PublishLocation fromId(String id) {
+            public static PublishLocation ofID(String id) {
                 for (PublishLocation location : values()) {
-                    if (location.getId().equals(id)) {
+                    if (location.getID().equals(id)) {
                         return location;
                     }
                 }
@@ -314,13 +314,13 @@ public class ShardStatus {
             this.id = id;
         }
 
-        public String getId() {
+        public String getID() {
             return id;
         }
 
-        public static Platform fromId(String id) {
+        public static Platform ofID(String id) {
             for (Platform platform : values()) {
-                if (platform.getId().equals(id)) {
+                if (platform.getID().equals(id)) {
                     return platform;
                 }
             }

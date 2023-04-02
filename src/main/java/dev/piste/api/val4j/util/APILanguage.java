@@ -1,9 +1,9 @@
 package dev.piste.api.val4j.util;
 
 /**
- * @author Piste | https://github.com/PisteDev
+ * @author Piste  (<a href="https://github.com/PisteDev">GitHub</a>)
  */
-public enum JVALanguage {
+public enum APILanguage {
 
     ARABIC("ar-AE"),
     GERMAN("de-DE"),
@@ -26,7 +26,7 @@ public enum JVALanguage {
 
     private final String locale;
 
-    JVALanguage(String locale) {
+    APILanguage(String locale) {
         this.locale = locale;
     }
 
@@ -34,8 +34,8 @@ public enum JVALanguage {
         return locale;
     }
 
-    public static JVALanguage ofLocale(String locale) {
-        for(JVALanguage language : values()) {
+    public static APILanguage ofLocale(String locale) {
+        for(APILanguage language : values()) {
             if(language.getLocale().equals(locale)) {
                 return language;
             }

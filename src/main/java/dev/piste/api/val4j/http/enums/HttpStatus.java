@@ -1,7 +1,7 @@
 package dev.piste.api.val4j.http.enums;
 
 /**
- * @author Piste | https://github.com/PisteDev
+ * @author Piste  (<a href="https://github.com/PisteDev">GitHub</a>)
  */
 @SuppressWarnings("unused")
 public enum HttpStatus {
