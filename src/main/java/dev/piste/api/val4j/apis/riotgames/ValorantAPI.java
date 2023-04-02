@@ -3,20 +3,17 @@ package dev.piste.api.val4j.apis.riotgames;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import dev.piste.api.val4j.apis.riotgames.enums.RiotShard;
-import dev.piste.api.val4j.apis.riotgames.models.Content;
-import dev.piste.api.val4j.apis.riotgames.models.Leaderboard;
-import dev.piste.api.val4j.apis.riotgames.models.MatchListEntry;
-import dev.piste.api.val4j.apis.riotgames.models.ShardStatus;
+import dev.piste.api.val4j.apis.riotgames.models.*;
 import dev.piste.api.val4j.http.RestClient;
 import dev.piste.api.val4j.http.requests.GetRequestBuilder;
 import dev.piste.api.val4j.http.requests.RestRequest;
 import dev.piste.api.val4j.http.requests.RestRequestBuilder;
-import dev.piste.api.val4j.util.JVALanguage;
+import dev.piste.api.val4j.util.APILanguage;
 
 import java.io.IOException;
 
 /**
- * @author Piste | https://github.com/PisteDev
+ * @author Piste  (<a href="https://github.com/PisteDev">GitHub</a>)
  */
 public class ValorantAPI {
 
@@ -33,7 +30,7 @@ public class ValorantAPI {
         gson = new GsonBuilder().setPrettyPrinting().create();
     }
 
-    public Content getContent(JVALanguage language) throws IOException {
+    public Content getContent(APILanguage language) throws IOException {
         RestRequest request = new GetRequestBuilder().addPath("content").addPath("v1")
                 .addPath("contents")
                 .addParameter("locale", language.getLocale())
@@ -67,6 +64,14 @@ public class ValorantAPI {
         return gson.fromJson(restClient.sendRequest(requestBuilder.build()), Leaderboard.class);
     }
 
+    public Match getMatch(String uuid) throws IOException {
+        RestRequest request = new GetRequestBuilder().addPath("match").addPath("v1")
+                .addPath("matches").addPath(uuid)
+                .addHeader(API_KEY_HEADER, apiKey)
+                .build();
+        return gson.fromJson(restClient.sendRequest(request), Match.class);
+    }
+
     public String[] getRecentMatchUUIDs(String queueId) throws IOException {
         RestRequest request = new GetRequestBuilder().addPath("match").addPath("v1")
                 .addPath("recent-matches").addPath("by-queue").addPath(queueId)
@@ -77,7 +82,7 @@ public class ValorantAPI {
 
     public MatchListEntry[] getMatchList(String puuid) throws IOException {
         RestRequest request = new GetRequestBuilder().addPath("match").addPath("v1")
-                .addPath("matchlist").addPath("by-puuid").addPath(puuid)
+                .addPath("matchlists").addPath("by-puuid").addPath(puuid)
                 .addHeader(API_KEY_HEADER, apiKey)
                 .build();
         return gson.fromJson(restClient.sendRequest(request).get("history").getAsJsonArray(), MatchListEntry[].class);
