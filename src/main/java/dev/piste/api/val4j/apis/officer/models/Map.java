@@ -35,7 +35,7 @@ public class Map {
     @SerializedName("callouts")
     private Callout[] callouts;
 
-    public String getUUID() {
+    public String getUuid() {
         return uuid;
     }
 

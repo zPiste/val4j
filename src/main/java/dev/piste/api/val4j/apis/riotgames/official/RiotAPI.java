@@ -1,11 +1,13 @@
-package dev.piste.api.val4j.apis.riotgames;
+package dev.piste.api.val4j.apis.riotgames.official;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonObject;
-import dev.piste.api.val4j.apis.riotgames.enums.RiotShard;
-import dev.piste.api.val4j.apis.riotgames.exceptions.InvalidParameterException;
-import dev.piste.api.val4j.apis.riotgames.models.RiotAccount;
+import dev.piste.api.val4j.apis.riotgames.official.enums.RiotCluster;
+import dev.piste.api.val4j.apis.riotgames.official.enums.RiotShard;
+import dev.piste.api.val4j.apis.riotgames.official.exceptions.InvalidParameterException;
+import dev.piste.api.val4j.apis.riotgames.official.exceptions.ParameterType;
+import dev.piste.api.val4j.apis.riotgames.official.models.RiotAccount;
 import dev.piste.api.val4j.http.RestClient;
 import dev.piste.api.val4j.http.exceptions.HttpStatusException;
 import dev.piste.api.val4j.http.requests.GetRequestBuilder;
@@ -16,7 +18,7 @@ import java.io.IOException;
 /**
  * @author Piste  (<a href="https://github.com/PisteDev">GitHub</a>)
  */
-public class RiotGamesAPI {
+public class RiotAPI {
 
     private static final String API_KEY_HEADER = "X-Riot-Token";
 
@@ -24,8 +26,8 @@ public class RiotGamesAPI {
     private final String apiKey;
     private final Gson gson;
 
-    public RiotGamesAPI(String apiKey, Cluster cluster) {
-        String BASE_URL = String.format("https://%s.api.riotgames.com/riot", cluster.getID());
+    public RiotAPI(String apiKey, RiotCluster cluster) {
+        String BASE_URL = String.format("https://%s.api.riotgames.com/riot", cluster.getId());
         restClient = new RestClient(BASE_URL);
         this.apiKey = apiKey;
         gson = new GsonBuilder().setPrettyPrinting().create();
@@ -41,7 +43,7 @@ public class RiotGamesAPI {
             return gson.fromJson(jsonObject, RiotAccount.class);
         } catch (HttpStatusException e) {
             if (e.getStatus().getCode() == 404 || e.getStatus().getCode() == 400) {
-                throw new InvalidParameterException("Riot ID", name + "#" + tag);
+                throw new InvalidParameterException(ParameterType.RIOT_ID, name + "#" + tag);
             }
             throw e;
         }
@@ -57,7 +59,7 @@ public class RiotGamesAPI {
             return gson.fromJson(jsonObject, RiotAccount.class);
         } catch (HttpStatusException e) {
             if (e.getStatus().getCode() == 404 || e.getStatus().getCode() == 400) {
-                throw new InvalidParameterException("PUUID", puuid);
+                throw new InvalidParameterException(ParameterType.PUUID, puuid);
             }
             throw e;
         }
@@ -78,26 +80,7 @@ public class RiotGamesAPI {
                 .addHeader(API_KEY_HEADER, apiKey)
                 .build();
         JsonObject jsonObject = restClient.sendRequest(request);
-        return RiotShard.getRiotShard(jsonObject.get("activeShard").getAsString());
-    }
-
-    public enum Cluster {
-
-        AMERICAS("americas"),
-        ASIA("asia"),
-        ESPORTS("esports"),
-        EUROPE("europe");
-
-        private final String id;
-
-        Cluster(String id) {
-            this.id = id;
-        }
-
-        public String getID() {
-            return id;
-        }
-
+        return RiotShard.ofId(jsonObject.get("activeShard").getAsString());
     }
 
 }

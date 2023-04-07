@@ -14,7 +14,8 @@ public class CompetitiveTierTable {
     private String assetName;
     @SerializedName("tiers")
     private Tier[] tiers;
-    public String getUUID() {
+
+    public String getUuid() {
         return uuid;
     }
 
@@ -49,7 +50,7 @@ public class CompetitiveTierTable {
         @SerializedName("rankTriangleUpIcon")
         private String triangleUpIconUrl;
 
-        public int getID() {
+        public int getId() {
             return id;
         }
 

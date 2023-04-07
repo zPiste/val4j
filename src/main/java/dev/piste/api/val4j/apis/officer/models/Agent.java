@@ -48,7 +48,7 @@ public class Agent {
     @SerializedName("voiceLine")
     private VoiceLine voiceLine;
 
-    public String getUUID() {
+    public String getUuid() {
         return uuid;
     }
 
@@ -137,7 +137,7 @@ public class Agent {
         @SerializedName("assetPath")
         private String assetPath;
 
-        public String getUUID() {
+        public String getUuid() {
             return uuid;
         }
 
@@ -162,7 +162,7 @@ public class Agent {
     public static class Ability {
 
         @SerializedName("slot")
-        private String slotName;
+        private String slotId;
         @SerializedName("displayName")
         private String name;
         @SerializedName("description")
@@ -171,11 +171,11 @@ public class Agent {
         private String iconUrl;
 
         public AbilitySlot getSlot() {
-            return AbilitySlot.of(slotName.toLowerCase());
+            return AbilitySlot.ofId(slotId.toLowerCase());
         }
 
-        public String getSlotName() {
-            return slotName;
+        public String getSlotId() {
+            return slotId;
         }
 
         public String getName() {
@@ -222,7 +222,7 @@ public class Agent {
             @SerializedName("wave")
             private String waveFileUrl;
 
-            public int getID() {
+            public int getId() {
                 return id;
             }
 

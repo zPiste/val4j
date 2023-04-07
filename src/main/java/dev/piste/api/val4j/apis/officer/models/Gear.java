@@ -21,7 +21,7 @@ public class Gear {
     @SerializedName("shopData")
     private ShopData shopData;
 
-    public String getUUID() {
+    public String getUuid() {
         return uuid;
     }
 

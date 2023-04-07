@@ -13,7 +13,7 @@ import java.io.IOException;
 import java.time.LocalDateTime;
 
 /**
- * @author Piste  (<a href="https://github.com/PisteDev">GitHub</a>)
+ * @author Piste (<a href="https://github.com/PisteDev">GitHub</a>)
  */
 public class OfficerAPI {
 
@@ -143,7 +143,7 @@ public class OfficerAPI {
     public CompetitiveTierTable getCurrentCompetitiveTierTable(APILanguage language) throws IOException {
         for(CompetitiveSeason competitiveSeason : getCompetitiveSeasons()) {
             if(LocalDateTime.now().isAfter(competitiveSeason.getStartDateTime()) && LocalDateTime.now().isBefore(competitiveSeason.getEndDateTime())) {
-                return getCompetitiveTierTable(competitiveSeason.getCompetitiveTierUUID(), language);
+                return getCompetitiveTierTable(competitiveSeason.getCompetitiveTierTableUuid(), language);
             }
         }
         return null;

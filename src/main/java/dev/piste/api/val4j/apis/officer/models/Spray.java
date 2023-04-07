@@ -31,7 +31,7 @@ public class Spray {
     @SerializedName("levels")
     private Level[] levels;
 
-    public String getUUID() {
+    public String getUuid() {
         return uuid;
     }
 
@@ -43,7 +43,7 @@ public class Spray {
         return category;
     }
 
-    public String getThemeUUID() {
+    public String getThemeUuid() {
         return themeUuid;
     }
 
@@ -88,7 +88,7 @@ public class Spray {
         @SerializedName("assetPath")
         private String assetPath;
 
-        public String getUUID() {
+        public String getUuid() {
             return uuid;
         }
 

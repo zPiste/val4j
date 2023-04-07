@@ -12,15 +12,14 @@ public class HttpStatusException extends IOException {
     private final HttpStatus status;
     private final String requestMethod;
     private final String responseBody;
-    private final String uri;
+    private final String url;
 
-
-    public HttpStatusException(int statusCode, String responseBody, String uri, String requestMethod) {
-        super("HTTP Error " + statusCode + " on " + requestMethod + " " + uri);
-        this.status = HttpStatus.valueOf(statusCode);
+    public HttpStatusException(int statusCode, String responseBody, String url, String requestMethod) {
+        super("HTTP Error " + statusCode + " on " + requestMethod + " " + url);
+        this.status = HttpStatus.ofCode(statusCode);
         this.requestMethod = requestMethod;
         this.responseBody = responseBody;
-        this.uri = uri;
+        this.url = url;
     }
 
     public HttpStatus getStatus() {
@@ -31,8 +30,8 @@ public class HttpStatusException extends IOException {
         return responseBody;
     }
 
-    public String getURI() {
-        return uri;
+    public String getUrl() {
+        return url;
     }
 
     public String getRequestMethod() {

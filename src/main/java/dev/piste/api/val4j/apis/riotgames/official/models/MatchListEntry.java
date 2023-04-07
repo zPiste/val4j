@@ -1,4 +1,4 @@
-package dev.piste.api.val4j.apis.riotgames.models;
+package dev.piste.api.val4j.apis.riotgames.official.models;
 
 import com.google.gson.annotations.SerializedName;
 
@@ -17,7 +17,7 @@ public class MatchListEntry {
     @SerializedName("queueId")
     private String queueId;
 
-    public String getMatchUUID() {
+    public String getMatchUuid() {
         return matchUuid;
     }
 
@@ -25,7 +25,7 @@ public class MatchListEntry {
         return LocalDateTime.ofEpochSecond(gameStartTimeMillis / 1000, 0, ZoneOffset.UTC);
     }
 
-    public String getQueueID() {
+    public String getQueueId() {
         return queueId;
     }
 }

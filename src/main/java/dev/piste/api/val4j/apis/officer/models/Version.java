@@ -28,7 +28,7 @@ public class Version {
     @SerializedName("buildDate")
     private String buildDateAsString;
 
-    public String getManifestID() {
+    public String getManifestId() {
         return manifestId;
     }
 

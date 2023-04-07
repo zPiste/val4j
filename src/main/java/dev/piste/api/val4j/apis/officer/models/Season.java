@@ -26,7 +26,7 @@ public class Season {
     @SerializedName("assetPath")
     private String assetPath;
 
-    public String getUUID() {
+    public String getUuid() {
         return uuid;
     }
 
@@ -46,7 +46,7 @@ public class Season {
         return LocalDateTime.parse(endTimeAsString, DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss'Z'"));
     }
 
-    public String getParentUUID() {
+    public String getParentUuid() {
         return parentUuid;
     }
 

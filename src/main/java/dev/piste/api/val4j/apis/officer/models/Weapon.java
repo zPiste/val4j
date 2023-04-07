@@ -29,7 +29,7 @@ public class Weapon {
     @SerializedName("skins")
     private WeaponSkin[] skins;
 
-    public String getUUID() {
+    public String getUuid() {
         return uuid;
     }
 
@@ -41,7 +41,7 @@ public class Weapon {
         return category;
     }
 
-    public String getDefaultSkinUUID() {
+    public String getDefaultSkinUuid() {
         return defaultSkinUuid;
     }
 

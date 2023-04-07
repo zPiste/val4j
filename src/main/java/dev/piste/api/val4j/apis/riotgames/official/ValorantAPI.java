@@ -1,9 +1,9 @@
-package dev.piste.api.val4j.apis.riotgames;
+package dev.piste.api.val4j.apis.riotgames.official;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import dev.piste.api.val4j.apis.riotgames.enums.RiotShard;
-import dev.piste.api.val4j.apis.riotgames.models.*;
+import dev.piste.api.val4j.apis.riotgames.official.enums.RiotShard;
+import dev.piste.api.val4j.apis.riotgames.official.models.*;
 import dev.piste.api.val4j.http.RestClient;
 import dev.piste.api.val4j.http.requests.GetRequestBuilder;
 import dev.piste.api.val4j.http.requests.RestRequest;
@@ -39,7 +39,7 @@ public class ValorantAPI {
         return gson.fromJson(restClient.sendRequest(request), Content.class);
     }
 
-    public ShardStatus getStatus() throws IOException {
+    public ShardStatus getShardStatus() throws IOException {
         RestRequest request = new GetRequestBuilder().addPath("status").addPath("v1")
                 .addPath("platform-data")
                 .addHeader(API_KEY_HEADER, apiKey)

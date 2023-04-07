@@ -23,7 +23,7 @@ public class Contract {
     @SerializedName("assetPath")
     private String assetPath;
 
-    public String getUUID() {
+    public String getUuid() {
         return uuid;
     }
 
@@ -62,13 +62,13 @@ public class Contract {
         @SerializedName("premiumRewardScheduleUuid")
         private String premiumRewardScheduleUuid;
         @SerializedName("premiumVPCost")
-        private int premiumVPPrice;
+        private int premiumVpPrice;
 
         public String getRelationType() {
             return relationType;
         }
 
-        public String getRelationUUID() {
+        public String getRelationUuid() {
             return relationUuid;
         }
 
@@ -80,8 +80,8 @@ public class Contract {
             return premiumRewardScheduleUuid;
         }
 
-        public int getPremiumVPPrice() {
-            return premiumVPPrice;
+        public int getPremiumVpPrice() {
+            return premiumVpPrice;
         }
 
         public static class Chapter {
@@ -149,7 +149,7 @@ public class Contract {
                     return type;
                 }
 
-                public String getUUID() {
+                public String getUuid() {
                     return uuid;
                 }
 

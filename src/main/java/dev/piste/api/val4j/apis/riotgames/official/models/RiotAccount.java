@@ -1,4 +1,4 @@
-package dev.piste.api.val4j.apis.riotgames.models;
+package dev.piste.api.val4j.apis.riotgames.official.models;
 
 import com.google.gson.annotations.SerializedName;
 
@@ -15,7 +15,7 @@ public class RiotAccount {
     @SerializedName("tagLine")
     private String tag;
 
-    public String getPUUID() {
+    public String getPuuid() {
         return puuid;
     }
 

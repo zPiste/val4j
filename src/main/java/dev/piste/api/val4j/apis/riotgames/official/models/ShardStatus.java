@@ -1,4 +1,4 @@
-package dev.piste.api.val4j.apis.riotgames.models;
+package dev.piste.api.val4j.apis.riotgames.official.models;
 
 import com.google.gson.annotations.SerializedName;
 
@@ -20,7 +20,7 @@ public class ShardStatus {
     @SerializedName("maintenances")
     private Maintenance[] maintenances;
 
-    public String getShardID() {
+    public String getShardId() {
         return shardId;
     }
 
@@ -55,12 +55,12 @@ public class ShardStatus {
         @SerializedName("platforms")
         private String[] platformsAsString;
 
-        public int getID() {
+        public int getId() {
             return id;
         }
 
         public Status getStatus() {
-            return Status.ofID(statusAsString);
+            return Status.ofId(statusAsString);
         }
 
         public Translation[] getTitles() {
@@ -103,13 +103,13 @@ public class ShardStatus {
                 this.id = id;
             }
 
-            public String getID() {
+            public String getId() {
                 return id;
             }
 
-            public static Status ofID(String id) {
+            public static Status ofId(String id) {
                 for (Status status : values()) {
-                    if (status.getID().equals(id)) {
+                    if (status.getId().equals(id)) {
                         return status;
                     }
                 }
@@ -139,12 +139,12 @@ public class ShardStatus {
         @SerializedName("platforms")
         private String[] platformsAsString;
 
-        public int getID() {
+        public int getId() {
             return id;
         }
 
         public Severity getSeverity() {
-            return Severity.ofID(severityAsString);
+            return Severity.ofId(severityAsString);
         }
 
         public Translation[] getTitles() {
@@ -187,13 +187,13 @@ public class ShardStatus {
                 this.id = id;
             }
 
-            public String getID() {
+            public String getId() {
                 return id;
             }
 
-            public static Severity ofID(String id) {
+            public static Severity ofId(String id) {
                 for (Severity severity : values()) {
-                    if (severity.getID().equals(id)) {
+                    if (severity.getId().equals(id)) {
                         return severity;
                     }
                 }

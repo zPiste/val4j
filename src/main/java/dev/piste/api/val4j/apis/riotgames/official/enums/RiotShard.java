@@ -1,4 +1,4 @@
-package dev.piste.api.val4j.apis.riotgames.enums;
+package dev.piste.api.val4j.apis.riotgames.official.enums;
 
 /**
  * @author Piste  (<a href="https://github.com/PisteDev">GitHub</a>)
@@ -22,7 +22,7 @@ public enum RiotShard {
         return id;
     }
 
-    public static RiotShard getRiotShard(String id) {
+    public static RiotShard ofId(String id) {
         for (RiotShard shard : values()) {
             if (shard.getId().equalsIgnoreCase(id)) {
                 return shard;

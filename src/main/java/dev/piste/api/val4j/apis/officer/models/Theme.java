@@ -19,7 +19,7 @@ public class Theme {
     @SerializedName("assetPath")
     private String assetPath;
 
-    public String getUUID() {
+    public String getUuid() {
         return uuid;
     }
 

@@ -8,7 +8,7 @@
 
     <groupId>dev.piste.api</groupId>
     <artifactId>val4j</artifactId>
-    <version>0.1.1</version>
+    <version>0.1.7</version>
     <packaging>jar</packaging>
 
     <name>Java VALORANT API</name>
@@ -27,14 +27,14 @@
             <name>Nils Rypalla</name>
             <email>contact@piste.dev</email>
             <organization>GitHub</organization>
-            <organizationUrl>https://github.com/PisteDev</organizationUrl>
+            <organizationUrl>https://github.com/pistedev</organizationUrl>
         </developer>
     </developers>
 
     <scm>
-        <connection>scm:git:git://github.com/PisteDev/VAL4J.git</connection>
-        <developerConnection>scm:git:ssh://github.com:PisteDev/VAL4J.git</developerConnection>
-        <url>https://github.com/PisteDev/JVA</url>
+        <connection>scm:git:git://github.com/pistedev/val4j.git</connection>
+        <developerConnection>scm:git:ssh://github.com:pistedev/val4j.git</developerConnection>
+        <url>https://github.com/pistedev/val4j</url>
     </scm>
 
     <properties>
@@ -53,6 +53,27 @@
             <url>https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/</url>
         </repository>
     </distributionManagement>
+
+    <!-- Dependencies -->
+
+    <dependencies>
+        <!-- Gson -->
+        <dependency>
+            <groupId>com.google.code.gson</groupId>
+            <artifactId>gson</artifactId>
+            <version>2.10.1</version>
+        </dependency>
+
+        <!-- JUnit 5 -->
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-api</artifactId>
+            <version>5.9.2</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+    <!-- Plugins -->
 
     <build>
         <plugins>
@@ -109,23 +130,5 @@
             </plugin>
         </plugins>
     </build>
-
-    <!-- Dependencies -->
-    <dependencies>
-        <!-- Gson -->
-        <dependency>
-            <groupId>com.google.code.gson</groupId>
-            <artifactId>gson</artifactId>
-            <version>2.10.1</version>
-        </dependency>
-
-        <!-- JUnit 5 -->
-        <dependency>
-            <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter-api</artifactId>
-            <version>5.9.2</version>
-            <scope>test</scope>
-        </dependency>
-    </dependencies>
 
 </project>

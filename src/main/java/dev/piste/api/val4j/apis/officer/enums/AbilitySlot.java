@@ -12,16 +12,16 @@ public enum AbilitySlot {
     PASSIVE("passive", '-'),
     UNKNOWN("unknown", '?');
 
-    private final String name;
+    private final String id;
     private final char defaultKey;
 
-    AbilitySlot(String name, char defaultKey) {
-        this.name = name;
+    AbilitySlot(String id, char defaultKey) {
+        this.id = id;
         this.defaultKey = defaultKey;
     }
 
-    public String getName() {
-        return name;
+    public String getId() {
+        return id;
     }
 
     public char getDefaultKey() {
@@ -32,10 +32,10 @@ public enum AbilitySlot {
         return this != UNKNOWN && this != PASSIVE;
     }
 
-    public static AbilitySlot of(String name) {
-        for (AbilitySlot slot : values()) {
-            if (slot.getName().equalsIgnoreCase(name)) {
-                return slot;
+    public static AbilitySlot ofId(String id) {
+        for (AbilitySlot abilitySlot : values()) {
+            if (abilitySlot.getId().equalsIgnoreCase(id)) {
+                return abilitySlot;
             }
         }
         return UNKNOWN;

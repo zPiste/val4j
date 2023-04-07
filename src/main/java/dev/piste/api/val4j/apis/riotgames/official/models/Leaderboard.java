@@ -1,4 +1,4 @@
-package dev.piste.api.val4j.apis.riotgames.models;
+package dev.piste.api.val4j.apis.riotgames.official.models;
 
 import com.google.gson.annotations.SerializedName;
 
@@ -23,7 +23,7 @@ public class Leaderboard {
     @SerializedName("tierDetails")
     private TierDetails tierDetails;
 
-    public String getActUUID() {
+    public String getActUuid() {
         return actUuid;
     }
 
@@ -66,9 +66,9 @@ public class Leaderboard {
         @SerializedName("numberOfWins")
         private int winCount;
         @SerializedName("competitiveTier")
-        private int rankId;
+        private int competitiveTierId;
 
-        public String getPUUID() {
+        public String getPuuid() {
             return puuid;
         }
 
@@ -92,10 +92,9 @@ public class Leaderboard {
             return winCount;
         }
 
-        public int getRankId() {
-            return rankId;
+        public int getCompetitiveTierId() {
+            return competitiveTierId;
         }
-
     }
 
     public static class TierDetails {

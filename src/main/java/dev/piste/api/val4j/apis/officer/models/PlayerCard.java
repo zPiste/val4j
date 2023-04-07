@@ -27,7 +27,7 @@ public class PlayerCard {
     @SerializedName("assetPath")
     private String assetPath;
 
-    public String getUUID() {
+    public String getUuid() {
         return uuid;
     }
 
@@ -39,7 +39,7 @@ public class PlayerCard {
         return hiddenIfNotOwned;
     }
 
-    public String getThemeUUID() {
+    public String getThemeUuid() {
         return themeUuid;
     }
 

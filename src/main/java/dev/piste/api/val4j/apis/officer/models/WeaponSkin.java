@@ -27,7 +27,7 @@ public class WeaponSkin {
     @SerializedName("levels")
     private Level[] levels;
 
-    public String getUUID() {
+    public String getUuid() {
         return uuid;
     }
 
@@ -35,11 +35,11 @@ public class WeaponSkin {
         return name;
     }
 
-    public String getThemeUUID() {
+    public String getThemeUuid() {
         return themeUuid;
     }
 
-    public String getContentTierUUID() {
+    public String getContentTierUuid() {
         return contentTierUuid;
     }
 
@@ -80,7 +80,7 @@ public class WeaponSkin {
         @SerializedName("assetPath")
         private String assetPath;
 
-        public String getUUID() {
+        public String getUuid() {
             return uuid;
         }
 
@@ -125,7 +125,7 @@ public class WeaponSkin {
         @SerializedName("assetPath")
         private String assetPath;
 
-        public String getUUID() {
+        public String getUuid() {
             return uuid;
         }
 

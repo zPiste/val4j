@@ -35,7 +35,7 @@ public class GameMode {
     @SerializedName("assetPath")
     private String assetPath;
 
-    public String getUUID() {
+    public String getUuid() {
         return uuid;
     }
 
@@ -44,7 +44,7 @@ public class GameMode {
     }
 
     public String getDurationAsString() {
-        return durationAsString;
+        return durationAsString.toLowerCase();
     }
 
     public boolean isAllowingMatchTimeouts() {

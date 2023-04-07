@@ -20,13 +20,13 @@ public class CompetitiveSeason {
     @SerializedName("seasonUuid")
     private String seasonUuid;
     @SerializedName("competitiveTiersUuid")
-    private String competitiveTierUuid;
+    private String competitiveTierTableUuid;
     @SerializedName("borders")
     private Border[] borders;
     @SerializedName("assetPath")
     private String assetPath;
 
-    public String getUUID() {
+    public String getUuid() {
         return uuid;
     }
 
@@ -38,12 +38,12 @@ public class CompetitiveSeason {
         return LocalDateTime.parse(endTimeAsString, DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss'Z'"));
     }
 
-    public String getSeasonUUID() {
+    public String getSeasonUuid() {
         return seasonUuid;
     }
 
-    public String getCompetitiveTierUUID() {
-        return competitiveTierUuid;
+    public String getCompetitiveTierTableUuid() {
+        return competitiveTierTableUuid;
     }
 
     public Border[] getBorders() {
@@ -69,7 +69,7 @@ public class CompetitiveSeason {
         @SerializedName("assetPath")
         private String assetPath;
 
-        public String getUUID() {
+        public String getUuid() {
             return uuid;
         }
 

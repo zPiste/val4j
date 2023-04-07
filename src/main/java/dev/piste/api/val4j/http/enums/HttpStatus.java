@@ -118,18 +118,9 @@ public enum HttpStatus {
         return this.getCode() + " " + this.name();
     }
 
-    public static HttpStatus valueOf(int statusCode) {
-        HttpStatus status = resolve(statusCode);
-        if (status == null) {
-            throw new IllegalArgumentException("No matching constant for [" + statusCode + "]");
-        } else {
-            return status;
-        }
-    }
-
-    public static HttpStatus resolve(int statusCode) {
+    public static HttpStatus ofCode(int code) {
         for (HttpStatus status : values()) {
-            if (status.code == statusCode) {
+            if (status.code == code) {
                 return status;
             }
         }
@@ -153,13 +144,14 @@ public enum HttpStatus {
             return this.value;
         }
 
-        public static Series valueOf(int statusCode) {
-            Series series = resolve(statusCode);
-            if (series == null) {
-                throw new IllegalArgumentException("No matching constant for [" + statusCode + "]");
-            } else {
-                return series;
+        public static Series ofCode(int code) {
+            int seriesCode = code / 100;
+            for (Series series : values()) {
+                if (series.value == seriesCode) {
+                    return series;
+                }
             }
+            return null;
         }
 
         public static Series resolve(int statusCode) {
