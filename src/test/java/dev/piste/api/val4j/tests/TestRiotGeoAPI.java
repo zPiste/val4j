@@ -30,8 +30,4 @@ public class TestRiotGeoAPI {
         assertNotNull(shard);
     }
 
-    private Config.RiotAccount getRiotAccount() {
-        return Config.getInstance().getRiotAccount();
-    }
-
 }

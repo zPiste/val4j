@@ -7,6 +7,7 @@ import java.io.IOException;
 /**
  * @author <a href="https://github.com/zpiste">Piste</a>
  */
+@SuppressWarnings("unused")
 public class HTTPStatusException extends IOException {
 
     private final HTTPStatus status;

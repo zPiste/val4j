@@ -86,7 +86,7 @@ public class RestClient {
             HttpResponse<String> response = httpClient.send(httpRequest, HttpResponse.BodyHandlers.ofString());
             HTTPStatus status = HTTPStatus.ofCode(response.statusCode());
             if (status.isError()) {
-                if (!isValidJSON(response.body())) {
+                if (isInvalidJSON(response.body())) {
                     throw new HTTPStatusException(response.statusCode(), response.body(), baseURL + restRequest.getPath(), restRequest.getMethod().toString());
                 }
                 StringWriter bodyWriter = new StringWriter();
@@ -95,10 +95,10 @@ public class RestClient {
                 gson.toJson(JsonParser.parseString(response.body()).getAsJsonObject(), jsonWriter);
                 throw new HTTPStatusException(response.statusCode(), bodyWriter.toString(), baseURL + restRequest.getPath(), restRequest.getMethod().toString());
             }
-            if (!isValidJSON(response.body())) {
+            if (isInvalidJSON(response.body())) {
                 throw new MalformedJsonException("Response body is not valid JSON");
             }
-            if(response.body().equals("")) return null;
+            if(response.body().isEmpty()) return null;
             return JsonParser.parseString(response.body());
         } catch (MalformedJsonException | InterruptedException e) {
             throw new RuntimeException(e);
@@ -119,12 +119,12 @@ public class RestClient {
         return builder.build();
     }
 
-    private boolean isValidJSON(String json) {
+    private boolean isInvalidJSON(String json) {
         try {
             JsonParser.parseString(json);
-            return true;
-        } catch (Exception e) {
             return false;
+        } catch (Exception e) {
+            return true;
         }
     }
 

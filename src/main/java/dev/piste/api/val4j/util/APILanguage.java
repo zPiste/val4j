@@ -3,6 +3,7 @@ package dev.piste.api.val4j.util;
 /**
  * @author <a href="https://github.com/zpiste">Piste</a>
  */
+@SuppressWarnings("unused")
 public enum APILanguage {
 
     ARABIC("ar-AE"),

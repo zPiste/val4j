@@ -132,12 +132,12 @@ public class StatusData {
         return this;
     }
 
-    public StatusData setMatchMapURL(String matchMapUrl) {
+    public StatusData setMatchMapURL(String matchMapURL) {
         this.matchMapURL = matchMapURL;
         return this;
     }
 
-    public StatusData setPartyUUID(String partyUuid) {
+    public StatusData setPartyUUID(String partyUUID) {
         this.partyUUID = partyUUID;
         return this;
     }
