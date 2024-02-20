@@ -1,7 +1,7 @@
 package dev.piste.api.val4j.apis.riotgames.official.enums;
 
 /**
- * @author Piste  (<a href="https://github.com/PisteDev">GitHub</a>)
+ * @author <a href="https://github.com/zpiste">Piste</a>
  */
 public enum SessionState {
 
@@ -15,13 +15,13 @@ public enum SessionState {
         this.id = id;
     }
 
-    public String getId() {
+    public String getID() {
         return id;
     }
 
-    public static SessionState ofId(String id) {
+    public static SessionState ofID(String id) {
         for (SessionState sessionState : SessionState.values()) {
-            if (sessionState.getId().equals(id)) {
+            if (sessionState.getID().equals(id)) {
                 return sessionState;
             }
         }

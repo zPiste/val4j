@@ -1,27 +1,35 @@
 package dev.piste.api.val4j.tests;
 
-import com.google.gson.Gson;
-import com.google.gson.JsonElement;
 import dev.piste.api.val4j.apis.riotgames.official.ValorantAPI;
-import dev.piste.api.val4j.apis.riotgames.official.enums.RiotShard;
+import dev.piste.api.val4j.apis.riotgames.official.enums.RiotRegion;
 import dev.piste.api.val4j.apis.riotgames.official.models.*;
+import dev.piste.api.val4j.tests.util.Config;
 import dev.piste.api.val4j.util.APILanguage;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.io.IOException;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 /**
- * @author Piste  (<a href="https://github.com/PisteDev">GitHub</a>)
+ * @author <a href="https://github.com/zpiste">Piste</a>
  */
+@DisplayName("VALORANT API")
 public class TestValorantAPI {
+
+    private final ValorantAPI api;
+
+    private static final String E7A3_SEASON_UUID = "4401f9fd-4170-2e4c-4bc3-f3b4d7d150d1";
+    private static final String ACTIVE_PLAYER_PUUID = "qxJfDkwqd-CdVVmOh_KiwfNkGlneClT8L_DCDSQzjD5aOmm7MhtsV6HR0UpBSnB4h4UUfNvq6WU_tQ";
+
+    public TestValorantAPI() {
+        this.api = new ValorantAPI(Config.getInstance().getAPIKey().getRiotGames(), RiotRegion.EUROPE);
+    }
 
     @Test
     public void testGetContent() throws IOException {
-        Content content = new ValorantAPI(getAPIKey(), RiotShard.EUROPE).getContent(APILanguage.GERMAN);
+        Content content = api.getContent(APILanguage.GERMAN);
         assertNotNull(content);
         assertNotNull(content.getVersion());
         assertNotNull(content.getAgents());
@@ -43,53 +51,49 @@ public class TestValorantAPI {
 
     @Test
     public void testGetStatus() throws IOException {
-        ShardStatus shardStatus = new ValorantAPI(getAPIKey(), RiotShard.EUROPE).getShardStatus();
+        ShardStatus shardStatus = api.getShardStatus();
         assertNotNull(shardStatus);
-        assertNotNull(shardStatus.getShardId());
+        assertNotNull(shardStatus.getShardID());
         assertNotNull(shardStatus.getShardName());
     }
 
     @Test
     public void testGetLeaderboard() throws IOException {
-        testLeaderboard(new ValorantAPI(getAPIKey(), RiotShard.EUROPE).getLeaderboard("34093c29-4306-43de-452f-3f944bde22be", 101, 0));
-        testLeaderboard(new ValorantAPI(getAPIKey(), RiotShard.EUROPE).getLeaderboard("34093c29-4306-43de-452f-3f944bde22be", 120));
-        testLeaderboard(new ValorantAPI(getAPIKey(), RiotShard.EUROPE).getLeaderboard("34093c29-4306-43de-452f-3f944bde22be"));
+        testLeaderboard(api.getLeaderboard(E7A3_SEASON_UUID, 101, 0));
+        testLeaderboard(api.getLeaderboard(E7A3_SEASON_UUID, 120));
+        testLeaderboard(api.getLeaderboard(E7A3_SEASON_UUID));
     }
 
     private void testLeaderboard(Leaderboard leaderboard) {
         assertNotNull(leaderboard);
-        assertEquals("34093c29-4306-43de-452f-3f944bde22be", leaderboard.getActUuid());
+        assertEquals(E7A3_SEASON_UUID, leaderboard.getActUUID());
         assertTrue(leaderboard.getPlayers().length > 100);
-        assertNotNull(leaderboard.getPlayers()[0].getPuuid());
+        assertNotNull(leaderboard.getPlayers()[0]);
     }
 
     @Test
     public void testGetMatch() throws IOException {
-        Match match = new ValorantAPI(getAPIKey(), RiotShard.EUROPE).getMatch("b3f93ea3-95c1-42ac-ac5c-23c2c0dc1369");
+        String matchUUID = new ValorantAPI(Config.getInstance().getAPIKey().getRiotGames(), RiotRegion.EUROPE).getRecentMatchUUIDs("competitive")[10];
+        Match match = new ValorantAPI(Config.getInstance().getAPIKey().getRiotGames(), RiotRegion.EUROPE).getMatch(matchUUID);
         assertNotNull(match);
-        assertEquals("b3f93ea3-95c1-42ac-ac5c-23c2c0dc1369", match.getMatchInfo().getUuid());
+        assertEquals(matchUUID, match.getMatchInfo().getUUID());
     }
 
     @Test
     public void testGetRecentMatchUUIDs() throws IOException {
-        String[] matchUuids = new ValorantAPI(getAPIKey(), RiotShard.EUROPE).getRecentMatchUUIDs("unrated");
+        String[] matchUuids = new ValorantAPI(Config.getInstance().getAPIKey().getRiotGames(), RiotRegion.EUROPE).getRecentMatchUUIDs("unrated");
         assertNotNull(matchUuids);
         assertTrue(matchUuids.length > 0);
     }
 
     @Test
-    public void testGetMatchList() throws IOException {
-        MatchListEntry[] matchList = new ValorantAPI(getAPIKey(), RiotShard.EUROPE).getMatchList("qxJfDkwqd-CdVVmOh_KiwfNkGlneClT8L_DCDSQzjD5aOmm7MhtsV6HR0UpBSnB4h4UUfNvq6WU_tQ");
+    public void testGetMatchHistory() throws IOException {
+        MatchHistory.Entry[] matchList = new ValorantAPI(Config.getInstance().getAPIKey().getRiotGames(), RiotRegion.EUROPE).getMatchHistory(ACTIVE_PLAYER_PUUID).getHistory();
         assertNotNull(matchList);
         assertTrue(matchList.length > 0);
-        assertNotNull(matchList[0].getMatchUuid());
+        assertNotNull(matchList[0].getMatchUUID());
         assertNotNull(matchList[0].getGameStartTime());
-        assertNotNull(matchList[0].getQueueId());
-
-    }
-
-    private String getAPIKey() throws FileNotFoundException {
-        return new Gson().fromJson(new FileReader("tokens.json"), JsonElement.class).getAsJsonObject().get("riotGamesApiKey").getAsString();
+        assertNotNull(matchList[0].getQueueID());
     }
 
 }

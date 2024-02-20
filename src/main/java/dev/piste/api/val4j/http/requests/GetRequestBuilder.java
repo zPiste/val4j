@@ -1,14 +1,14 @@
 package dev.piste.api.val4j.http.requests;
 
-import dev.piste.api.val4j.http.enums.HttpMethod;
+import dev.piste.api.val4j.http.enums.HTTPMethod;
 
 /**
- * @author Piste  (<a href="https://github.com/PisteDev">GitHub</a>)
+ * @author <a href="https://github.com/zpiste">Piste</a>
  */
 public class GetRequestBuilder extends RestRequestBuilder {
 
     public GetRequestBuilder() {
-        super(HttpMethod.GET, null, null);
+        super(HTTPMethod.GET, null, null);
     }
 
 }

@@ -1,7 +1,7 @@
 package dev.piste.api.val4j.apis.riotgames.official.enums;
 
 /**
- * @author Piste  (<a href="https://github.com/PisteDev">GitHub</a>)
+ * @author <a href="https://github.com/zpiste">Piste</a>
  */
 public enum PresenceState {
 
@@ -16,13 +16,13 @@ public enum PresenceState {
         this.id = id;
     }
 
-    public String getId() {
+    public String getID() {
         return id;
     }
 
-    public static PresenceState ofId(String id) {
+    public static PresenceState ofID(String id) {
         for (PresenceState presenceState : PresenceState.values()) {
-            if (presenceState.getId().equals(id)) {
+            if (presenceState.getID().equals(id)) {
                 return presenceState;
             }
         }

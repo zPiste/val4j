@@ -6,22 +6,24 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 /**
- * @author Piste  (<a href="https://github.com/PisteDev">GitHub</a>)
+ * @author <a href="https://github.com/zpiste">Piste</a>
  */
 @SuppressWarnings("unused")
 public class ShardStatus {
 
     @SerializedName("id")
-    private String shardId;
+    private String shardID;
     @SerializedName("name")
     private String shardName;
     @SerializedName("locales")
     private String[] locales;
     @SerializedName("maintenances")
     private Maintenance[] maintenances;
+    @SerializedName("incidents")
+    private Incident[] incidents;
 
-    public String getShardId() {
-        return shardId;
+    public String getShardID() {
+        return shardID;
     }
 
     public String getShardName() {
@@ -34,6 +36,10 @@ public class ShardStatus {
 
     public Maintenance[] getMaintenances() {
         return maintenances;
+    }
+
+    public Incident[] getIncidents() {
+        return incidents;
     }
 
     public static class Maintenance {
@@ -55,12 +61,12 @@ public class ShardStatus {
         @SerializedName("platforms")
         private String[] platformsAsString;
 
-        public int getId() {
+        public int getID() {
             return id;
         }
 
         public Status getStatus() {
-            return Status.ofId(statusAsString);
+            return Status.ofID(statusAsString);
         }
 
         public Translation[] getTitles() {
@@ -103,13 +109,13 @@ public class ShardStatus {
                 this.id = id;
             }
 
-            public String getId() {
+            public String getID() {
                 return id;
             }
 
-            public static Status ofId(String id) {
+            public static Status ofID(String id) {
                 for (Status status : values()) {
-                    if (status.getId().equals(id)) {
+                    if (status.getID().equals(id)) {
                         return status;
                     }
                 }

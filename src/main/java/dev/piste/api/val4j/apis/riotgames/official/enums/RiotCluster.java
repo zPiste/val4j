@@ -1,7 +1,7 @@
 package dev.piste.api.val4j.apis.riotgames.official.enums;
 
 /**
- * @author Piste (<a href="https://github.com/pistedev">GitHub</a>)
+ * @author <a href="https://github.com/zpiste">Piste</a>
  */
 public enum RiotCluster {
 
@@ -16,7 +16,7 @@ public enum RiotCluster {
         this.id = id;
     }
 
-    public String getId() {
+    public String getID() {
         return id;
     }
 

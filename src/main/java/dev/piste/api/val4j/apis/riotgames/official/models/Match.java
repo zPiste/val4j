@@ -6,7 +6,7 @@ import java.time.LocalDateTime;
 import java.time.ZoneOffset;
 
 /**
- * @author Piste  (<a href="https://github.com/PisteDev">GitHub</a>)
+ * @author <a href="https://github.com/zpiste">Piste</a>
  */
 @SuppressWarnings("unused")
 public class Match {
@@ -47,7 +47,7 @@ public class Match {
         @SerializedName("matchId")
         private String uuid;
         @SerializedName("mapId")
-        private String mapUrl;
+        private String mapURL;
         @SerializedName("gameVersion")
         private String gameVersion;
         @SerializedName("gameLengthMillis")
@@ -57,26 +57,26 @@ public class Match {
         @SerializedName("gameStartMillis")
         private long gameStartMillis;
         @SerializedName("provisioningFlowId")
-        private String provisioningFlowId;
+        private String provisioningFlowID;
         @SerializedName("isCompleted")
         private boolean completed;
         @SerializedName("customGameName")
         private String customGameName;
         @SerializedName("queueId")
-        private String queueId;
+        private String queueID;
         @SerializedName("gameMode")
-        private String gameModeUrl;
+        private String gameModeURL;
         @SerializedName("isRanked")
         private boolean ranked;
         @SerializedName("seasonId")
-        private String seasonUuid;
+        private String seasonUUID;
 
-        public String getUuid() {
+        public String getUUID() {
             return uuid;
         }
 
-        public String getMapUrl() {
-            return mapUrl;
+        public String getMapURL() {
+            return mapURL;
         }
 
         public LocalDateTime getStartDateTime() {
@@ -87,8 +87,8 @@ public class Match {
             return LocalDateTime.ofEpochSecond((gameStartMillis + gameLengthMillis) / 1000, 0, ZoneOffset.UTC);
         }
 
-        public String getProvisioningFlowId() {
-            return provisioningFlowId;
+        public String getProvisioningFlowID() {
+            return provisioningFlowID;
         }
 
         public boolean isCompleted() {
@@ -99,22 +99,21 @@ public class Match {
             return customGameName;
         }
 
-        public String getQueueId() {
-            return queueId;
+        public String getQueueID() {
+            return queueID;
         }
 
-        public String getGameModeUrl() {
-            return gameModeUrl;
+        public String getGameModeURL() {
+            return gameModeURL;
         }
 
         public boolean isRanked() {
             return ranked;
         }
 
-        public String getSeasonUuid() {
-            return seasonUuid;
+        public String getSeasonUUID() {
+            return seasonUUID;
         }
-
     }
 
     public static class Player {
@@ -126,21 +125,21 @@ public class Match {
         @SerializedName("tagLine")
         private String tag;
         @SerializedName("teamId")
-        private String teamId;
+        private String teamID;
         @SerializedName("partyId")
-        private String partyUuid;
+        private String partyUUID;
         @SerializedName("characterId")
-        private String agentUuid;
+        private String agentUUID;
         @SerializedName("stats")
         private Stats stats;
         @SerializedName("competitiveTier")
-        private int rankId;
+        private int competitiveTierID;
         @SerializedName("playerCard")
-        private String playerCardUuid;
+        private String playerCardUUID;
         @SerializedName("playerTitle")
-        private String playerTitleUuid;
+        private String playerTitleUUID;
 
-        public String getPuuid() {
+        public String getPUUID() {
             return puuid;
         }
 
@@ -152,32 +151,32 @@ public class Match {
             return tag;
         }
 
-        public String getTeamId() {
-            return teamId;
+        public String getTeamID() {
+            return teamID;
         }
 
-        public String getPartyUuid() {
-            return partyUuid;
+        public String getPartyUUID() {
+            return partyUUID;
         }
 
-        public String getAgentUuid() {
-            return agentUuid;
+        public String getAgentUUID() {
+            return agentUUID;
         }
 
         public Stats getStats() {
             return stats;
         }
 
-        public int getRankID() {
-            return rankId;
+        public int getCompetitiveTierID() {
+            return competitiveTierID;
         }
 
-        public String getPlayerCardUuid() {
-            return playerCardUuid;
+        public String getPlayerCardUUID() {
+            return playerCardUUID;
         }
 
-        public String getPlayerTitleUuid() {
-            return playerTitleUuid;
+        public String getPlayerTitleUUID() {
+            return playerTitleUUID;
         }
 
         public static class Stats {
@@ -267,16 +266,15 @@ public class Match {
         @SerializedName("puuid")
         private String puuid;
         @SerializedName("teamId")
-        private String teamId;
+        private String teamID;
 
-        public String getPuuid() {
+        public String getPUUID() {
             return puuid;
         }
 
-        public String getTeamId() {
-            return teamId;
+        public String getTeamID() {
+            return teamID;
         }
-
     }
 
     public static class Team {
@@ -292,7 +290,7 @@ public class Match {
         @SerializedName("numPoints")
         private int points;
 
-        public String getId() {
+        public String getID() {
             return id;
         }
 
@@ -323,11 +321,11 @@ public class Match {
         @SerializedName("roundCeremony")
         private String ceremony;
         @SerializedName("winningTeam")
-        private String winningTeamId;
+        private String winningTeamID;
         @SerializedName("bombPlanter")
-        private String bombPlanterPuuid;
+        private String bombPlanterPUUID;
         @SerializedName("bombDefuser")
-        private String bombDefuserPuuid;
+        private String bombDefuserPUUID;
         @SerializedName("plantRoundTime")
         private int plantRoundTime;
         @SerializedName("plantPlayerLocations")
@@ -359,16 +357,16 @@ public class Match {
             return ceremony;
         }
 
-        public String getWinningTeamId() {
-            return winningTeamId;
+        public String getWinningTeamID() {
+            return winningTeamID;
         }
 
-        public String getBombPlanterPuuid() {
-            return bombPlanterPuuid;
+        public String getBombPlanterPUUID() {
+            return bombPlanterPUUID;
         }
 
-        public String getBombDefuserPuuid() {
-            return bombDefuserPuuid;
+        public String getBombDefuserPUUID() {
+            return bombDefuserPUUID;
         }
 
         public int getPlantRoundTime() {
@@ -416,7 +414,7 @@ public class Match {
             @SerializedName("location")
             private Location location;
 
-            public String getPuuid() {
+            public String getPUUID() {
                 return puuid;
             }
 
@@ -462,7 +460,7 @@ public class Match {
             @SerializedName("ability")
             private Ability ability;
 
-            public String getPuuid() {
+            public String getPUUID() {
                 return puuid;
             }
 
@@ -493,13 +491,13 @@ public class Match {
                 @SerializedName("timeSinceRoundStartMillis")
                 private long timeSinceRoundStartMillis;
                 @SerializedName("killer")
-                private String killerPuuid;
+                private String killerPUUID;
                 @SerializedName("victim")
-                private String victimPuuid;
+                private String victimPUUID;
                 @SerializedName("victimLocation")
                 private Location victimLocation;
                 @SerializedName("assistants")
-                private String[] assistantPuuids;
+                private String[] assistantPUUIDs;
                 @SerializedName("playerLocations")
                 private PlayerLocation[] playerLocations;
                 @SerializedName("finishingDamage")
@@ -513,12 +511,12 @@ public class Match {
                     return timeSinceRoundStartMillis;
                 }
 
-                public String getKillerPuuid() {
-                    return killerPuuid;
+                public String getKillerPUUID() {
+                    return killerPUUID;
                 }
 
-                public String getVictimPuuid() {
-                    return victimPuuid;
+                public String getVictimPUUID() {
+                    return victimPUUID;
                 }
 
                 public Location getVictimLocation() {
@@ -526,7 +524,7 @@ public class Match {
                 }
 
                 public String[] getAssistantPUUIDs() {
-                    return assistantPuuids;
+                    return assistantPUUIDs;
                 }
 
                 public PlayerLocation[] getPlayerLocations() {
@@ -565,7 +563,7 @@ public class Match {
             public static class Damage {
 
                 @SerializedName("receiver")
-                private String receiverPuuid;
+                private String receiverPUUID;
                 @SerializedName("damage")
                 private int damageCount;
                 @SerializedName("legshots")
@@ -575,8 +573,8 @@ public class Match {
                 @SerializedName("headshots")
                 private int headshotCount;
 
-                public String getReceiverPuuid() {
-                    return receiverPuuid;
+                public String getReceiverPUUID() {
+                    return receiverPUUID;
                 }
 
                 public int getDamageCount() {
@@ -602,9 +600,9 @@ public class Match {
                 @SerializedName("loadoutValue")
                 private int loadoutValue;
                 @SerializedName("weapon")
-                private String weaponUuid;
+                private String weaponUUID;
                 @SerializedName("armor")
-                private String armorUuid;
+                private String armorUUID;
                 @SerializedName("remaining")
                 private int remainingMoney;
                 @SerializedName("spent")
@@ -614,12 +612,12 @@ public class Match {
                     return loadoutValue;
                 }
 
-                public String getWeaponUuid() {
-                    return weaponUuid.toLowerCase();
+                public String getWeaponUUID() {
+                    return weaponUUID;
                 }
 
-                public String getArmorUuid() {
-                    return armorUuid.toLowerCase();
+                public String getArmorUUID() {
+                    return armorUUID;
                 }
 
                 public int getRemainingMoney() {

@@ -3,6 +3,7 @@ package dev.piste.api.val4j.apis.asset.enums;
 /**
  * @author <a href="https://github.com/zpiste">Piste</a>
  */
+@SuppressWarnings("unused")
 public enum AbilitySlot {
 
     ABILITY_1("ability1", 'Q'),

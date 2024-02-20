@@ -2,7 +2,7 @@ package dev.piste.api.val4j.apis.riotgames.official;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import dev.piste.api.val4j.apis.riotgames.official.enums.RiotShard;
+import dev.piste.api.val4j.apis.riotgames.official.enums.RiotRegion;
 import dev.piste.api.val4j.apis.riotgames.official.models.*;
 import dev.piste.api.val4j.http.RestClient;
 import dev.piste.api.val4j.http.requests.GetRequestBuilder;
@@ -13,7 +13,7 @@ import dev.piste.api.val4j.util.APILanguage;
 import java.io.IOException;
 
 /**
- * @author Piste  (<a href="https://github.com/PisteDev">GitHub</a>)
+ * @author <a href="https://github.com/zpiste">Piste</a>
  */
 public class ValorantAPI {
 
@@ -23,8 +23,8 @@ public class ValorantAPI {
     private final String apiKey;
     private final Gson gson;
 
-    public ValorantAPI(String apiKey, RiotShard shard) {
-        String BASE_URL = String.format("https://%s.api.riotgames.com/val", shard.getId());
+    public ValorantAPI(String apiKey, RiotRegion region) {
+        String BASE_URL = String.format("https://%s.api.riotgames.com/val", region.getID());
         restClient = new RestClient(BASE_URL);
         this.apiKey = apiKey;
         gson = new GsonBuilder().setPrettyPrinting().create();
@@ -47,17 +47,17 @@ public class ValorantAPI {
         return gson.fromJson(restClient.sendRequest(request), ShardStatus.class);
     }
 
-    public Leaderboard getLeaderboard(String actUuid) throws IOException {
-        return getLeaderboard(actUuid, 0, 0);
+    public Leaderboard getLeaderboard(String actUUID) throws IOException {
+        return getLeaderboard(actUUID, 0, 0);
     }
 
-    public Leaderboard getLeaderboard(String actUuid, int size) throws IOException {
-        return getLeaderboard(actUuid, size, 0);
+    public Leaderboard getLeaderboard(String actUUID, int size) throws IOException {
+        return getLeaderboard(actUUID, size, 0);
     }
 
-    public Leaderboard getLeaderboard(String actUuid, int size, int startIndex) throws IOException {
+    public Leaderboard getLeaderboard(String actUUID, int size, int startIndex) throws IOException {
         RestRequestBuilder requestBuilder = new GetRequestBuilder().addPath("ranked").addPath("v1")
-                .addPath("leaderboards").addPath("by-act").addPath(actUuid)
+                .addPath("leaderboards").addPath("by-act").addPath(actUUID)
                 .addHeader(API_KEY_HEADER, apiKey);
         if(size != 0) requestBuilder.addParameter("size", String.valueOf(size));
         if(startIndex != 0) requestBuilder.addParameter("startIndex", String.valueOf(startIndex));
@@ -72,20 +72,20 @@ public class ValorantAPI {
         return gson.fromJson(restClient.sendRequest(request), Match.class);
     }
 
-    public String[] getRecentMatchUUIDs(String queueId) throws IOException {
+    public String[] getRecentMatchUUIDs(String queueID) throws IOException {
         RestRequest request = new GetRequestBuilder().addPath("match").addPath("v1")
-                .addPath("recent-matches").addPath("by-queue").addPath(queueId)
+                .addPath("recent-matches").addPath("by-queue").addPath(queueID)
                 .addHeader(API_KEY_HEADER, apiKey)
                 .build();
-        return gson.fromJson(restClient.sendRequest(request).get("matchIds").getAsJsonArray(), String[].class);
+        return gson.fromJson(restClient.sendRequest(request).getAsJsonObject().get("matchIds").getAsJsonArray(), String[].class);
     }
 
-    public MatchListEntry[] getMatchList(String puuid) throws IOException {
+    public MatchHistory getMatchHistory(String puuid) throws IOException {
         RestRequest request = new GetRequestBuilder().addPath("match").addPath("v1")
                 .addPath("matchlists").addPath("by-puuid").addPath(puuid)
                 .addHeader(API_KEY_HEADER, apiKey)
                 .build();
-        return gson.fromJson(restClient.sendRequest(request).get("history").getAsJsonArray(), MatchListEntry[].class);
+        return gson.fromJson(restClient.sendRequest(request).getAsJsonObject(), MatchHistory.class);
     }
 
 }

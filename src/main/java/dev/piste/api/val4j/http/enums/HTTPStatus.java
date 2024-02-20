@@ -1,11 +1,12 @@
 package dev.piste.api.val4j.http.enums;
 
 /**
- * @author Piste  (<a href="https://github.com/PisteDev">GitHub</a>)
+ * @author <a href="https://github.com/zpiste">Piste</a>
  */
 @SuppressWarnings("unused")
-public enum HttpStatus {
+public enum HTTPStatus {
 
+    UNKNOWN(0, Series.UNKNOWN, "Unknown"),
     CONTINUE(100, Series.INFORMATIONAL, "Continue"),
     SWITCHING_PROTOCOLS(101, Series.INFORMATIONAL, "Switching Protocols"),
     PROCESSING(102, Series.INFORMATIONAL, "Processing"),
@@ -72,7 +73,7 @@ public enum HttpStatus {
     private final Series series;
     private final String reasonPhrase;
 
-    HttpStatus(int code, Series series, String reasonPhrase) {
+    HTTPStatus(int code, Series series, String reasonPhrase) {
         this.code = code;
         this.series = series;
         this.reasonPhrase = reasonPhrase;
@@ -118,16 +119,17 @@ public enum HttpStatus {
         return this.getCode() + " " + this.name();
     }
 
-    public static HttpStatus ofCode(int code) {
-        for (HttpStatus status : values()) {
+    public static HTTPStatus ofCode(int code) {
+        for (HTTPStatus status : values()) {
             if (status.code == code) {
                 return status;
             }
         }
-        return null;
+        return UNKNOWN;
     }
 
     public enum Series {
+        UNKNOWN(0),
         INFORMATIONAL(1),
         SUCCESSFUL(2),
         REDIRECTION(3),
@@ -151,18 +153,9 @@ public enum HttpStatus {
                     return series;
                 }
             }
-            return null;
+            return UNKNOWN;
         }
 
-        public static Series resolve(int statusCode) {
-            int seriesCode = statusCode / 100;
-            for (Series series : values()) {
-                if (series.value == seriesCode) {
-                    return series;
-                }
-            }
-            return null;
-        }
     }
 
 }

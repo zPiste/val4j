@@ -1,7 +1,7 @@
 package dev.piste.api.val4j.apis.riotgames.official.enums;
 
 /**
- * @author Piste  (<a href="https://github.com/PisteDev">GitHub</a>)
+ * @author <a href="https://github.com/zpiste">Piste</a>
  */
 public enum MatchTeam {
 
@@ -14,13 +14,13 @@ public enum MatchTeam {
         this.id = id;
     }
 
-    public String getId() {
+    public String getID() {
         return id;
     }
 
-    public static MatchTeam ofId(String id) {
+    public static MatchTeam ofID(String id) {
         for (MatchTeam matchTeam : MatchTeam.values()) {
-            if (matchTeam.getId().equals(id)) {
+            if (matchTeam.getID().equals(id)) {
                 return matchTeam;
             }
         }

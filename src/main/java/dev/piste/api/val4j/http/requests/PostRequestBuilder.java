@@ -1,15 +1,15 @@
 package dev.piste.api.val4j.http.requests;
 
 import dev.piste.api.val4j.http.enums.ContentType;
-import dev.piste.api.val4j.http.enums.HttpMethod;
+import dev.piste.api.val4j.http.enums.HTTPMethod;
 
 /**
- * @author Piste  (<a href="https://github.com/PisteDev">GitHub</a>)
+ * @author <a href="https://github.com/zpiste">Piste</a>
  */
 public class PostRequestBuilder extends RestRequestBuilder {
 
     public PostRequestBuilder(String body, ContentType contentType) {
-        super(HttpMethod.POST, body, contentType);
+        super(HTTPMethod.POST, body, contentType);
     }
 
 }

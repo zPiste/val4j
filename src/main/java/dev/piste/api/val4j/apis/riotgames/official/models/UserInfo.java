@@ -7,7 +7,7 @@ import java.time.LocalDateTime;
 import java.time.ZoneId;
 
 /**
- * @author Piste  (<a href="https://github.com/PisteDev">GitHub</a>)
+ * @author <a href="https://github.com/zpiste">Piste</a>
  */
 @SuppressWarnings("unused")
 public class UserInfo {
@@ -29,7 +29,7 @@ public class UserInfo {
     @SerializedName("account_verified")
     private boolean accountVerified;
     @SerializedName("ppid")
-    private String profilePictureId;
+    private String profilePictureID;
     @SerializedName("federated_identity_providers")
     private String[] federatedIdentityProviders;
     @SerializedName("player_locale")
@@ -39,7 +39,7 @@ public class UserInfo {
     @SerializedName("age")
     private int age;
     @SerializedName("jti")
-    private String jwtId;
+    private String jwtID;
     @SerializedName("affinity")
     private Affinity affinity;
 
@@ -47,7 +47,7 @@ public class UserInfo {
         return countryCode;
     }
 
-    public String getPuuid() {
+    public String getPUUID() {
         return puuid;
     }
 
@@ -75,8 +75,8 @@ public class UserInfo {
         return accountVerified;
     }
 
-    public String getProfilePictureId() {
-        return profilePictureId;
+    public String getProfilePictureID() {
+        return profilePictureID;
     }
 
     public String[] getFederatedIdentityProviders() {
@@ -95,8 +95,8 @@ public class UserInfo {
         return age;
     }
 
-    public String getJwtId() {
-        return jwtId;
+    public String getJWTID() {
+        return jwtID;
     }
 
     public Affinity getAffinity() {

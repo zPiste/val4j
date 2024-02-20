@@ -5,6 +5,7 @@ import com.google.gson.annotations.SerializedName;
 /**
  * @author <a href="https://github.com/zpiste">Piste</a>
  */
+@SuppressWarnings("unused")
 public class PlayerCard {
 
     @SerializedName("uuid")
@@ -26,7 +27,7 @@ public class PlayerCard {
     @SerializedName("assetPath")
     private String assetPath;
 
-    public String getUuid() {
+    public String getUUID() {
         return uuid;
     }
 

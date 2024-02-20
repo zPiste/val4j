@@ -7,7 +7,7 @@ import dev.piste.api.val4j.apis.riotgames.official.enums.PartyState;
 import dev.piste.api.val4j.apis.riotgames.official.enums.SessionState;
 
 /**
- * @author Piste  (<a href="https://github.com/PisteDev">GitHub</a>)
+ * @author <a href="https://github.com/zpiste">Piste</a>
  */
 @SuppressWarnings("unused")
 public class StatusData {
@@ -23,7 +23,7 @@ public class StatusData {
     @SerializedName("customGameTeam")
     private String customGameTeam;
     @SerializedName("partyOwnerMatchMap")
-    private String partyOwnerMatchMapUrl;
+    private String partyOwnerMatchMapURL;
     @SerializedName("partyOwnerMatchCurrentTeam")
     private String partyOwnerMatchCurrentTeam;
     @SerializedName("partyOwnerMatchScoreAllyTeam")
@@ -31,13 +31,13 @@ public class StatusData {
     @SerializedName("partyOwnerMatchScoreEnemyTeam")
     private int partyOwnerMatchScoreEnemyTeam;
     @SerializedName("partyOwnerProvisioningFlow")
-    private String partyOwnerProvisioningFlowId;
+    private String partyOwnerProvisioningFlowID;
     @SerializedName("provisioningFlow")
-    private String provisioningFlowId;
+    private String provisioningFlowID;
     @SerializedName("matchMap")
-    private String matchMapUrl;
+    private String matchMapURL;
     @SerializedName("partyId")
-    private String partyUuid;
+    private String partyUUID;
     @SerializedName("isPartyOwner")
     private boolean partyOwner;
     @SerializedName("partyState")
@@ -47,31 +47,31 @@ public class StatusData {
     @SerializedName("maxPartySize")
     private int maxPartySize;
     @SerializedName("queueId")
-    private String queueId;
+    private String queueID;
     @SerializedName("partyLFM")
-    private boolean partyLfm;
+    private boolean partyLFM;
     @SerializedName("partyClientVersion")
     private String partyClientVersion;
     @SerializedName("partySize")
     private int partySize;
     @SerializedName("tournamentId")
-    private String tournamentId;
+    private String tournamentID;
     @SerializedName("rosterId")
-    private String rosterId;
+    private String rosterID;
     @SerializedName("partyVersion")
     private long partyVersion;
     @SerializedName("queueEntryTime")
     private String queueEntryTime;
     @SerializedName("playerCardId")
-    private String playerCardUuid;
+    private String playerCardUUID;
     @SerializedName("playerTitleId")
-    private String playerTitleUuid;
+    private String playerTitleUUID;
     @SerializedName("preferredLevelBorderId")
-    private String preferredLevelBorderUuid;
+    private String preferredLevelBorderUUID;
     @SerializedName("accountLevel")
     private int accountLevel;
     @SerializedName("competitiveTier")
-    private int competitiveTierId;
+    private int competitiveTierID;
     @SerializedName("leaderboardPosition")
     private int leaderboardPosition;
     @SerializedName("isIdle")
@@ -83,12 +83,12 @@ public class StatusData {
     }
 
     public StatusData setSessionState(SessionState sessionState) {
-        this.sessionState = sessionState.getId();
+        this.sessionState = sessionState.getID();
         return this;
     }
 
     public StatusData setPartyOwnerSessionState(SessionState partyOwnerSessionState) {
-        this.partyOwnerSessionState = partyOwnerSessionState.getId();
+        this.partyOwnerSessionState = partyOwnerSessionState.getID();
         return this;
     }
 
@@ -98,17 +98,17 @@ public class StatusData {
     }
 
     public StatusData setCustomGameTeam(MatchTeam matchTeam) {
-        this.customGameTeam = matchTeam.getId();
+        this.customGameTeam = matchTeam.getID();
         return this;
     }
 
-    public StatusData setPartyOwnerMatchMapUrl(String partyOwnerMatchMapUrl) {
-        this.partyOwnerMatchMapUrl = partyOwnerMatchMapUrl;
+    public StatusData setPartyOwnerMatchMapURL(String partyOwnerMatchMapURL) {
+        this.partyOwnerMatchMapURL = partyOwnerMatchMapURL;
         return this;
     }
 
     public StatusData setPartyOwnerMatchCurrentTeam(MatchTeam partyOwnerMatchCurrentTeam) {
-        this.partyOwnerMatchCurrentTeam = partyOwnerMatchCurrentTeam.getId();
+        this.partyOwnerMatchCurrentTeam = partyOwnerMatchCurrentTeam.getID();
         return this;
     }
 
@@ -122,23 +122,23 @@ public class StatusData {
         return this;
     }
 
-    public StatusData setPartyOwnerProvisioningFlowId(String partyOwnerProvisioningFlowId) {
-        this.partyOwnerProvisioningFlowId = partyOwnerProvisioningFlowId;
+    public StatusData setPartyOwnerProvisioningFlowID(String partyOwnerProvisioningFlowID) {
+        this.partyOwnerProvisioningFlowID = partyOwnerProvisioningFlowID;
         return this;
     }
 
-    public StatusData setProvisioningFlowId(String provisioningFlowId) {
-        this.provisioningFlowId = provisioningFlowId;
+    public StatusData setProvisioningFlowID(String provisioningFlowID) {
+        this.provisioningFlowID = provisioningFlowID;
         return this;
     }
 
-    public StatusData setMatchMapUrl(String matchMapUrl) {
-        this.matchMapUrl = matchMapUrl;
+    public StatusData setMatchMapURL(String matchMapUrl) {
+        this.matchMapURL = matchMapURL;
         return this;
     }
 
-    public StatusData setPartyUuid(String partyUuid) {
-        this.partyUuid = partyUuid;
+    public StatusData setPartyUUID(String partyUuid) {
+        this.partyUUID = partyUUID;
         return this;
     }
 
@@ -148,12 +148,12 @@ public class StatusData {
     }
 
     public StatusData setPartyState(PartyState partyState) {
-        this.partyState = partyState.getId();
+        this.partyState = partyState.getID();
         return this;
     }
 
     public StatusData setPartyAccessibility(PartyAccessibility partyAccessibility) {
-        this.partyAccessibility = partyAccessibility.getId();
+        this.partyAccessibility = partyAccessibility.getID();
         return this;
     }
 
@@ -162,13 +162,13 @@ public class StatusData {
         return this;
     }
 
-    public StatusData setQueueId(String queueId) {
-        this.queueId = queueId;
+    public StatusData setQueueID(String queueID) {
+        this.queueID = queueID;
         return this;
     }
 
-    public StatusData setPartyLfm(boolean partyLfm) {
-        this.partyLfm = partyLfm;
+    public StatusData setPartyLFM(boolean partyLFM) {
+        this.partyLFM = partyLFM;
         return this;
     }
 
@@ -182,13 +182,13 @@ public class StatusData {
         return this;
     }
 
-    public StatusData setTournamentId(String tournamentId) {
-        this.tournamentId = tournamentId;
+    public StatusData setTournamentID(String tournamentID) {
+        this.tournamentID = tournamentID;
         return this;
     }
 
-    public StatusData setRosterId(String rosterId) {
-        this.rosterId = rosterId;
+    public StatusData setRosterID(String rosterID) {
+        this.rosterID = rosterID;
         return this;
     }
 
@@ -202,18 +202,18 @@ public class StatusData {
         return this;
     }
 
-    public StatusData setPlayerCardUuid(String playerCardUuid) {
-        this.playerCardUuid = playerCardUuid;
+    public StatusData setPlayerCardUUID(String playerCardUUID) {
+        this.playerCardUUID = playerCardUUID;
         return this;
     }
 
-    public StatusData setPlayerTitleUuid(String playerTitleUuid) {
-        this.playerTitleUuid = playerTitleUuid;
+    public StatusData setPlayerTitleUUID(String playerTitleUUID) {
+        this.playerTitleUUID = playerTitleUUID;
         return this;
     }
 
-    public StatusData setPreferredLevelBorderUuid(String preferredLevelBorderUuid) {
-        this.preferredLevelBorderUuid = preferredLevelBorderUuid;
+    public StatusData setPreferredLevelBorderUUID(String preferredLevelBorderUUID) {
+        this.preferredLevelBorderUUID = preferredLevelBorderUUID;
         return this;
     }
 
@@ -222,8 +222,8 @@ public class StatusData {
         return this;
     }
 
-    public StatusData setCompetitiveTierId(int competitiveTierId) {
-        this.competitiveTierId = competitiveTierId;
+    public StatusData setCompetitiveTierID(int competitiveTierID) {
+        this.competitiveTierID = competitiveTierID;
         return this;
     }
 

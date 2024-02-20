@@ -15,6 +15,7 @@ import java.time.LocalDateTime;
 /**
  * @author <a href="https://github.com/zpiste">Piste</a>
  */
+@SuppressWarnings("unused")
 public class ValorantAssetAPI {
 
     private final RestClient restClient;

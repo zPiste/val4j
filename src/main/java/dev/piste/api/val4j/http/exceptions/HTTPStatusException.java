@@ -1,28 +1,28 @@
 package dev.piste.api.val4j.http.exceptions;
 
-import dev.piste.api.val4j.http.enums.HttpStatus;
+import dev.piste.api.val4j.http.enums.HTTPStatus;
 
 import java.io.IOException;
 
 /**
- * @author Piste  (<a href="https://github.com/PisteDev">GitHub</a>)
+ * @author <a href="https://github.com/zpiste">Piste</a>
  */
-public class HttpStatusException extends IOException {
+public class HTTPStatusException extends IOException {
 
-    private final HttpStatus status;
+    private final HTTPStatus status;
     private final String requestMethod;
     private final String responseBody;
     private final String url;
 
-    public HttpStatusException(int statusCode, String responseBody, String url, String requestMethod) {
+    public HTTPStatusException(int statusCode, String responseBody, String url, String requestMethod) {
         super("HTTP Error " + statusCode + " on " + requestMethod + " " + url);
-        this.status = HttpStatus.ofCode(statusCode);
+        this.status = HTTPStatus.ofCode(statusCode);
         this.requestMethod = requestMethod;
         this.responseBody = responseBody;
         this.url = url;
     }
 
-    public HttpStatus getStatus() {
+    public HTTPStatus getStatus() {
         return status;
     }
 
@@ -30,7 +30,7 @@ public class HttpStatusException extends IOException {
         return responseBody;
     }
 
-    public String getUrl() {
+    public String getURL() {
         return url;
     }
 

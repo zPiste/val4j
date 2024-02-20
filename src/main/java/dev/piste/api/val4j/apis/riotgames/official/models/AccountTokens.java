@@ -1,7 +1,7 @@
 package dev.piste.api.val4j.apis.riotgames.official.models;
 
 /**
- * @author Piste (<a href="https://github.com/pistedev">GitHub</a>)
+ * @author <a href="https://github.com/zpiste">Piste</a>
  */
 public class AccountTokens {
 
@@ -17,7 +17,7 @@ public class AccountTokens {
         return accessToken;
     }
 
-    public String getIdToken() {
+    public String getIDToken() {
         return idToken;
     }
 

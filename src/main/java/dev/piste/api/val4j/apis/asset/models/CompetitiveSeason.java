@@ -8,6 +8,7 @@ import java.time.format.DateTimeFormatter;
 /**
  * @author <a href="https://github.com/zpiste">Piste</a>
  */
+@SuppressWarnings("unused")
 public class CompetitiveSeason {
 
     @SerializedName("uuid")

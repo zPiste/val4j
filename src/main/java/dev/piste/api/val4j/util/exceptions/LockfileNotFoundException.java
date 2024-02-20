@@ -3,7 +3,7 @@ package dev.piste.api.val4j.util.exceptions;
 import java.io.FileNotFoundException;
 
 /**
- * @author Piste  (<a href="https://github.com/PisteDev">GitHub</a>)
+ * @author <a href="https://github.com/zpiste">Piste</a>
  */
 public class LockfileNotFoundException extends FileNotFoundException {
 

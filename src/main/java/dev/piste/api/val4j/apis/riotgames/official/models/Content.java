@@ -3,7 +3,7 @@ package dev.piste.api.val4j.apis.riotgames.official.models;
 import com.google.gson.annotations.SerializedName;
 
 /**
- * @author Piste  (<a href="https://github.com/PisteDev">GitHub</a>)
+ * @author <a href="https://github.com/zpiste">Piste</a>
  */
 @SuppressWarnings("unused")
 public class Content {
@@ -120,7 +120,7 @@ public class Content {
             return name;
         }
 
-        public String getUuid() {
+        public String getUUID() {
             return uuid;
         }
 
@@ -139,7 +139,7 @@ public class Content {
         @SerializedName("id")
         private String uuid;
         @SerializedName("parentId")
-        private String parentUuid;
+        private String parentUUID;
         @SerializedName("type")
         private String typeAsString;
         @SerializedName("name")
@@ -147,16 +147,16 @@ public class Content {
         @SerializedName("isActive")
         private boolean active;
 
-        public String getUuid() {
+        public String getUUID() {
             return uuid;
         }
 
-        public String getParentUuid() {
-            return parentUuid;
+        public String getParentUUID() {
+            return parentUUID;
         }
 
         public Type getType() {
-            return Type.ofId(typeAsString);
+            return Type.ofID(typeAsString);
         }
 
         public String getName() {
@@ -178,13 +178,13 @@ public class Content {
                 this.id = id;
             }
 
-            public String getId() {
+            public String getID() {
                 return id;
             }
 
-            public static Type ofId(String id) {
+            public static Type ofID(String id) {
                 for (Type type : values()) {
-                    if (type.getId().equals(id)) {
+                    if (type.getID().equals(id)) {
                         return type;
                     }
                 }

@@ -1,6 +1,5 @@
 package dev.piste.api.val4j.apis.riotgames.official;
 
-import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import dev.piste.api.val4j.http.RestClient;
 import dev.piste.api.val4j.http.enums.ContentType;
@@ -10,7 +9,7 @@ import dev.piste.api.val4j.http.requests.RestRequest;
 import java.io.IOException;
 
 /**
- * @author Piste  (<a href="https://github.com/PisteDev">GitHub</a>)
+ * @author <a href="https://github.com/zpiste">Piste</a>
  */
 public class RiotEntitlementsAuthAPI {
 
@@ -26,7 +25,7 @@ public class RiotEntitlementsAuthAPI {
                 .addHeader("Authorization", "Bearer " + accessToken)
                 .build();
 
-        JsonObject responseObject = restClient.sendRequest(restRequest);
+        JsonObject responseObject = restClient.sendRequest(restRequest).getAsJsonObject();
 
         return responseObject.get("entitlements_token").getAsString();
     }

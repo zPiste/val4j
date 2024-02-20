@@ -1,63 +1,64 @@
 package dev.piste.api.val4j.tests;
 
-import com.google.gson.Gson;
-import com.google.gson.JsonElement;
 import dev.piste.api.val4j.apis.riotgames.official.RiotAPI;
 import dev.piste.api.val4j.apis.riotgames.official.enums.RiotCluster;
-import dev.piste.api.val4j.apis.riotgames.official.enums.RiotShard;
+import dev.piste.api.val4j.apis.riotgames.official.enums.RiotRegion;
 import dev.piste.api.val4j.apis.riotgames.official.models.RiotAccount;
-import dev.piste.api.val4j.http.exceptions.HttpStatusException;
+import dev.piste.api.val4j.http.exceptions.HTTPStatusException;
+import dev.piste.api.val4j.tests.util.Config;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.io.IOException;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 /**
- * @author Piste  (<a href="https://github.com/PisteDev">GitHub</a>)
+ * @author <a href="https://github.com/zpiste">Piste</a>
  */
+@DisplayName("RiotGames Account API")
 public class TestRiotAPI {
 
+    private final RiotAPI api;
+
+    private static final String ACCOUNT_PUUID = "qxJfDkwqd-CdVVmOh_KiwfNkGlneClT8L_DCDSQzjD5aOmm7MhtsV6HR0UpBSnB4h4UUfNvq6WU_tQ";
+
+    public TestRiotAPI() {
+        this.api = new RiotAPI(Config.getInstance().getAPIKey().getRiotGames(), RiotCluster.EUROPE);
+    }
+
     @Test
-    public void testGetAccountByRiotID() throws IOException {
-        RiotAccount riotAccount = new RiotAPI(getAPIKey(), RiotCluster.EUROPE)
-                .getAccount("Piste", "DEV");
+    public void testGetAccountByPUUID() throws IOException {
+        RiotAccount riotAccount = api.getAccount(ACCOUNT_PUUID);
         assertNotNull(riotAccount);
-        assertNotNull(riotAccount.getPuuid());
+        assertNotNull(riotAccount.getPUUID());
         assertNotNull(riotAccount.getName());
         assertNotNull(riotAccount.getTag());
     }
 
     @Test
-    public void testGetAccountByPUUID() throws IOException {
-        RiotAccount riotAccount = new RiotAPI(getAPIKey(), RiotCluster.EUROPE)
-                .getAccount("qxJfDkwqd-CdVVmOh_KiwfNkGlneClT8L_DCDSQzjD5aOmm7MhtsV6HR0UpBSnB4h4UUfNvq6WU_tQ");
+    public void testGetAccountByRiotID() throws IOException {
+        RiotAccount cacheAccount = api.getAccount(ACCOUNT_PUUID);
+        RiotAccount riotAccount = api.getAccount(cacheAccount.getName(), cacheAccount.getTag());
         assertNotNull(riotAccount);
-        assertNotNull(riotAccount.getPuuid());
+        assertNotNull(riotAccount.getPUUID());
         assertNotNull(riotAccount.getName());
         assertNotNull(riotAccount.getTag());
     }
 
     @Test
     public void testGetAccountByAccessToken() throws IOException {
-        // Not possible to check if the token is valid, so we just check if the request is successful
+        // Not possible to check if the token is valid, so just check if the request is successful
         try {
-            new RiotAPI(getAPIKey(), RiotCluster.EUROPE)
+            new RiotAPI(Config.getInstance().getAPIKey().getRiotGames(), RiotCluster.EUROPE)
                     .getAccountByToken("");
-        } catch (HttpStatusException ignored) {}
+        } catch (HTTPStatusException ignored) {}
     }
 
     @Test
-    public void testGetActiveShard() throws IOException {
-        RiotShard riotShard = new RiotAPI(getAPIKey(), RiotCluster.EUROPE)
-                .getActiveShard("qxJfDkwqd-CdVVmOh_KiwfNkGlneClT8L_DCDSQzjD5aOmm7MhtsV6HR0UpBSnB4h4UUfNvq6WU_tQ");
-        assertNotNull(riotShard);
-    }
-
-    private String getAPIKey() throws FileNotFoundException {
-        return new Gson().fromJson(new FileReader("tokens.json"), JsonElement.class).getAsJsonObject().get("riotGamesApiKey").getAsString();
+    public void testGetActiveRegion() throws IOException {
+        RiotRegion riotRegion = api.getActiveRegion(ACCOUNT_PUUID);
+        assertNotNull(riotRegion);
     }
 
 }

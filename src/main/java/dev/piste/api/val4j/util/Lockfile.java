@@ -7,7 +7,7 @@ import java.io.FileReader;
 import java.io.IOException;
 
 /**
- * @author Piste  (<a href="https://github.com/PisteDev">GitHub</a>)
+ * @author <a href="https://github.com/zpiste">Piste</a>
  */
 public class Lockfile {
 

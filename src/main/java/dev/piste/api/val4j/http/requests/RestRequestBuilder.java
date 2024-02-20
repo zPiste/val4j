@@ -1,7 +1,7 @@
 package dev.piste.api.val4j.http.requests;
 
 import dev.piste.api.val4j.http.enums.ContentType;
-import dev.piste.api.val4j.http.enums.HttpMethod;
+import dev.piste.api.val4j.http.enums.HTTPMethod;
 
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
@@ -10,18 +10,18 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 /**
- * @author Piste  (<a href="https://github.com/PisteDev">GitHub</a>)
+ * @author <a href="https://github.com/zpiste">Piste</a>
  */
 public abstract class RestRequestBuilder {
 
     private final StringBuilder pathBuilder;
-    private final HttpMethod method;
+    private final HTTPMethod method;
     private final String body;
     private final ContentType contentType;
     private final Map<String, String> headers;
     private final Map<String, String> parameters;
 
-    protected RestRequestBuilder(HttpMethod method, String body, ContentType contentType) {
+    protected RestRequestBuilder(HTTPMethod method, String body, ContentType contentType) {
         this.pathBuilder = new StringBuilder();
         this.method = method;
         this.body = body;
@@ -41,7 +41,7 @@ public abstract class RestRequestBuilder {
     }
 
     public RestRequestBuilder addParameter(String key, String value) {
-        parameters.put(key, value);
+        parameters.put(key, URLEncoder.encode(value, StandardCharsets.UTF_8));
         return this;
     }
 

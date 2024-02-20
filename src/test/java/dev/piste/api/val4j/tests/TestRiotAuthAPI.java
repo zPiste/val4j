@@ -1,43 +1,59 @@
 package dev.piste.api.val4j.tests;
 
-import com.google.gson.Gson;
-import com.google.gson.JsonObject;
 import dev.piste.api.val4j.apis.riotgames.official.RiotAuthAPI;
 import dev.piste.api.val4j.apis.riotgames.official.models.AccountTokens;
 import dev.piste.api.val4j.apis.riotgames.official.models.UserInfo;
+import dev.piste.api.val4j.tests.util.Config;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.io.IOException;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 /**
- * @author Piste  (<a href="https://github.com/PisteDev">GitHub</a>)
+ * @author <a href="https://github.com/zpiste">Piste</a>
  */
+@DisplayName("RiotGames Internal Authentication API")
 public class TestRiotAuthAPI {
 
+    private static AccountTokens accountTokens;
+
+    private final RiotAuthAPI api;
+
+    public TestRiotAuthAPI() {
+        this.api = new RiotAuthAPI();
+    }
+
     @Test
-    public void testGetAccountTokens() throws IOException {
-        AccountTokens accountTokens = new RiotAuthAPI().getTokens(getAccountUsername(), getAccountPassword());
-        assertTrue(accountTokens != null && accountTokens.getAccessToken() != null && accountTokens.getIdToken() != null);
+    public void testGetTokens() throws IOException {
+        AccountTokens accountTokens = getTokens();
+        assertTrue(accountTokens != null && accountTokens.getAccessToken() != null && accountTokens.getIDToken() != null);
+    }
+
+    @Test
+    public void testGetTokensByCookieReAuth() throws IOException {
+        api.getTokens(getRiotAccount().getUsername(), getRiotAccount().getPassword());
+        AccountTokens accountTokens = api.getTokens();
+        assertTrue(accountTokens != null && accountTokens.getAccessToken() != null && accountTokens.getIDToken() != null);
     }
 
     @Test
     public void testGetUserInfo() throws IOException {
-        RiotAuthAPI riotAuthAPI = new RiotAuthAPI();
-        String accessToken = riotAuthAPI.getTokens(getAccountUsername(), getAccountPassword()).getAccessToken();
-        UserInfo userInfo = riotAuthAPI.getUserInfo(accessToken);
-        assertTrue(userInfo != null && userInfo.getPuuid() != null && userInfo.getJwtId() != null);
+        String accessToken = getTokens().getAccessToken();
+        UserInfo userInfo = api.getUserInfo(accessToken);
+        assertTrue(userInfo != null && userInfo.getPUUID() != null && userInfo.getJWTID() != null);
     }
 
-    private String getAccountUsername() throws FileNotFoundException {
-        return new Gson().fromJson(new FileReader("tokens.json"), JsonObject.class).getAsJsonObject("riotAccount").get("username").getAsString();
+    public static AccountTokens getTokens() throws IOException {
+        if(accountTokens == null) {
+            accountTokens = new RiotAuthAPI().getTokens(getRiotAccount().getUsername(), getRiotAccount().getPassword());
+        }
+        return accountTokens;
     }
 
-    private String getAccountPassword() throws FileNotFoundException {
-        return new Gson().fromJson(new FileReader("tokens.json"), JsonObject.class).getAsJsonObject("riotAccount").get("password").getAsString();
+    private static Config.RiotAccount getRiotAccount() {
+        return Config.getInstance().getRiotAccount();
     }
 
 }

@@ -1,22 +1,22 @@
 package dev.piste.api.val4j.http.requests;
 
 import dev.piste.api.val4j.http.enums.ContentType;
-import dev.piste.api.val4j.http.enums.HttpMethod;
+import dev.piste.api.val4j.http.enums.HTTPMethod;
 
 import java.util.Map;
 
 /**
- * @author Piste  (<a href="https://github.com/PisteDev">GitHub</a>)
+ * @author <a href="https://github.com/zpiste">Piste</a>
  */
 public class RestRequest {
 
     private final String path;
-    private final HttpMethod method;
+    private final HTTPMethod method;
     private final String body;
     private final ContentType contentType;
     private final Map<String, String> headers;
 
-    protected RestRequest(HttpMethod method, String path, String body, ContentType contentType, Map<String, String> headers) {
+    protected RestRequest(HTTPMethod method, String path, String body, ContentType contentType, Map<String, String> headers) {
         this.path = path;
         this.method = method;
         this.body = body;
@@ -32,7 +32,7 @@ public class RestRequest {
         return path;
     }
 
-    public HttpMethod getMethod() {
+    public HTTPMethod getMethod() {
         return method;
     }
 

@@ -1,13 +1,13 @@
 package dev.piste.api.val4j.apis.riotgames.official.exceptions;
 
 /**
- * @author Piste  (<a href="https://github.com/PisteDev">GitHub</a>)
+ * @author <a href="https://github.com/zpiste">Piste</a>
  */
 public enum ParameterType {
 
     RIOT_ID("Riot ID"),
-    PUUID("puuid"),
-    UUID("uuid");
+    PUUID("PUUID"),
+    UUID("UUID");
 
     private final String name;
 

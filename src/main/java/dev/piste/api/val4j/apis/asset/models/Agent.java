@@ -6,6 +6,7 @@ import dev.piste.api.val4j.apis.asset.enums.AbilitySlot;
 /**
  * @author <a href="https://github.com/zpiste">Piste</a>
  */
+@SuppressWarnings("unused")
 public class Agent {
 
     @SerializedName("uuid")

@@ -1,7 +1,7 @@
-package dev.piste.api.val4j.apis.riotgames.unofficial;
+package dev.piste.api.val4j.apis.riotgames.internal;
 
 import com.google.gson.Gson;
-import dev.piste.api.val4j.apis.riotgames.unofficial.models.OwnPresence;
+import dev.piste.api.val4j.apis.riotgames.internal.models.OwnPresence;
 import dev.piste.api.val4j.http.RestClient;
 import dev.piste.api.val4j.http.enums.ContentType;
 import dev.piste.api.val4j.http.requests.PutRequestBuilder;
@@ -12,7 +12,7 @@ import java.io.IOException;
 import java.util.Base64;
 
 /**
- * @author Piste  (<a href="https://github.com/PisteDev">GitHub</a>)
+ * @author <a href="https://github.com/zpiste">Piste</a>
  */
 public class RiotLocalAPI {
 

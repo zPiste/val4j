@@ -1,4 +1,4 @@
-package dev.piste.api.val4j.apis.riotgames.unofficial;
+package dev.piste.api.val4j.apis.riotgames.internal;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
@@ -11,7 +11,7 @@ import dev.piste.api.val4j.http.requests.RestRequest;
 import java.io.IOException;
 
 /**
- * @author Piste (<a href="https://github.com/PisteDev">GitHub</a>)
+ * @author <a href="https://github.com/zpiste">Piste</a>
  */
 public class RiotGeoAPI {
 
@@ -31,8 +31,8 @@ public class RiotGeoAPI {
                 .addHeader("Authorization", "Bearer " + accessToken)
                 .build();
 
-        JsonObject responseObject = restClient.sendRequest(restRequest);
-        return RiotShard.ofId(responseObject.get("affinities").getAsJsonObject().get("live").getAsString());
+        JsonObject responseObject = restClient.sendRequest(restRequest).getAsJsonObject();
+        return RiotShard.ofID(responseObject.get("affinities").getAsJsonObject().get("live").getAsString());
     }
 
 }

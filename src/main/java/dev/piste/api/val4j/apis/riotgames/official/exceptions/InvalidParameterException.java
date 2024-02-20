@@ -3,8 +3,9 @@ package dev.piste.api.val4j.apis.riotgames.official.exceptions;
 import java.io.IOException;
 
 /**
- * @author Piste  (<a href="https://github.com/PisteDev">GitHub</a>)
+ * @author <a href="https://github.com/zpiste">Piste</a>
  */
+@SuppressWarnings("unused")
 public class InvalidParameterException extends IOException {
 
     private final ParameterType parameterType;

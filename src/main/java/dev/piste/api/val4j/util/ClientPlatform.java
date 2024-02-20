@@ -5,11 +5,11 @@ import com.google.gson.JsonObject;
 import java.util.Base64;
 
 /**
- * @author Piste  (<a href="https://github.com/PisteDev">GitHub</a>)
+ * @author <a href="https://github.com/zpiste">Piste</a>
  */
 public class ClientPlatform {
 
-    public static String getAsBase64() {
+    public static String getAsBase64Encoded() {
         JsonObject jsonObject = new JsonObject();
         jsonObject.addProperty("platformType", "PC");
         jsonObject.addProperty("platformOS", "Windows");

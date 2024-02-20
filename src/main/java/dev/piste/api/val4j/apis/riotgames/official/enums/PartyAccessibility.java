@@ -14,13 +14,13 @@ public enum PartyAccessibility {
         this.id = id;
     }
 
-    public String getId() {
+    public String getID() {
         return id;
     }
 
-    public static PartyAccessibility ofId(String id) {
+    public static PartyAccessibility ofID(String id) {
         for (PartyAccessibility partyAccessibility : PartyAccessibility.values()) {
-            if (partyAccessibility.getId().equals(id)) {
+            if (partyAccessibility.getID().equals(id)) {
                 return partyAccessibility;
             }
         }

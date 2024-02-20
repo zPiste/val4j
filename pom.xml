@@ -5,15 +5,14 @@
     <modelVersion>4.0.0</modelVersion>
 
     <!-- Project Information -->
-
     <groupId>dev.piste.api</groupId>
     <artifactId>val4j</artifactId>
-    <version>0.1.7</version>
+    <version>0.2.0-SNAPSHOT</version>
     <packaging>jar</packaging>
 
     <name>Java VALORANT API</name>
-    <description>A java wrapper for every rest API associated with VALORANT</description>
-    <url>https://github.com/PisteDev/VAL4J</url>
+    <description>A Java wrapper for every API associated with VALORANT</description>
+    <url>https://github.com/zpiste/val4j</url>
 
     <licenses>
         <license>
@@ -24,39 +23,48 @@
 
     <developers>
         <developer>
-            <name>Nils Rypalla</name>
+            <name>Piste</name>
             <email>contact@piste.dev</email>
             <organization>GitHub</organization>
-            <organizationUrl>https://github.com/pistedev</organizationUrl>
+            <organizationUrl>https://github.com/zpiste</organizationUrl>
         </developer>
     </developers>
 
     <scm>
-        <connection>scm:git:git://github.com/pistedev/val4j.git</connection>
-        <developerConnection>scm:git:ssh://github.com:pistedev/val4j.git</developerConnection>
-        <url>https://github.com/pistedev/val4j</url>
+        <connection>scm:git:git://github.com/zpiste/val4j.git</connection>
+        <developerConnection>scm:git:ssh://github.com:zpiste/val4j.git</developerConnection>
+        <url>https://github.com/zpiste/val4j</url>
     </scm>
 
     <properties>
-        <maven.compiler.source>17</maven.compiler.source>
-        <maven.compiler.target>17</maven.compiler.target>
+        <maven.compiler.source>21</maven.compiler.source>
+        <maven.compiler.target>21</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
+    <!-- Publishing Repositories -->
     <distributionManagement>
-        <snapshotRepository>
-            <id>ossrh</id>
-            <url>https://s01.oss.sonatype.org/content/repositories/snapshots</url>
-        </snapshotRepository>
-        <repository>
+        <!--<repository>
             <id>ossrh</id>
             <url>https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/</url>
         </repository>
+        <snapshotRepository>
+            <id>ossrh</id>
+            <url>https://s01.oss.sonatype.org/content/repositories/snapshots</url>
+        </snapshotRepository>-->
+        <repository>
+            <id>piste-repository</id>
+            <url>https://repo.piste.dev/releases</url>
+        </repository>
+        <snapshotRepository>
+            <id>piste-repository</id>
+            <url>https://repo.piste.dev/snapshots</url>
+        </snapshotRepository>
     </distributionManagement>
 
     <!-- Dependencies -->
-
     <dependencies>
+
         <!-- Gson -->
         <dependency>
             <groupId>com.google.code.gson</groupId>
@@ -68,16 +76,16 @@
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-api</artifactId>
-            <version>5.9.2</version>
+            <version>5.10.2</version>
             <scope>test</scope>
         </dependency>
+
     </dependencies>
 
     <!-- Plugins -->
-
     <build>
         <plugins>
-            <plugin>
+            <!--<plugin>
                 <groupId>org.sonatype.plugins</groupId>
                 <artifactId>nexus-staging-maven-plugin</artifactId>
                 <version>1.6.13</version>
@@ -91,7 +99,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-source-plugin</artifactId>
-                <version>2.2.1</version>
+                <version>3.3.0</version>
                 <executions>
                     <execution>
                         <id>attach-sources</id>
@@ -100,11 +108,11 @@
                         </goals>
                     </execution>
                 </executions>
-            </plugin>
+            </plugin>-->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-javadoc-plugin</artifactId>
-                <version>2.9.1</version>
+                <version>3.6.3</version>
                 <executions>
                     <execution>
                         <id>attach-javadocs</id>
@@ -114,7 +122,7 @@
                     </execution>
                 </executions>
             </plugin>
-            <plugin>
+            <!--<plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-gpg-plugin</artifactId>
                 <version>1.5</version>
@@ -127,7 +135,7 @@
                         </goals>
                     </execution>
                 </executions>
-            </plugin>
+            </plugin>-->
         </plugins>
     </build>
 

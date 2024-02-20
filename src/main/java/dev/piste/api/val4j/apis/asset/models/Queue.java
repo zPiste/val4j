@@ -5,6 +5,7 @@ import com.google.gson.annotations.SerializedName;
 /**
  * @author <a href="https://github.com/zpiste">Piste</a>
  */
+@SuppressWarnings("unused")
 public class Queue {
 
     @SerializedName("uuid")

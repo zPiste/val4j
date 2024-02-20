@@ -1,7 +1,7 @@
 package dev.piste.api.val4j.util;
 
 /**
- * @author Piste  (<a href="https://github.com/PisteDev">GitHub</a>)
+ * @author <a href="https://github.com/zpiste">Piste</a>
  */
 public enum APILanguage {
 

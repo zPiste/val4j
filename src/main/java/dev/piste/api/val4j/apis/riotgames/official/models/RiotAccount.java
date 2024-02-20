@@ -3,7 +3,7 @@ package dev.piste.api.val4j.apis.riotgames.official.models;
 import com.google.gson.annotations.SerializedName;
 
 /**
- * @author Piste  (<a href="https://github.com/PisteDev">GitHub</a>)
+ * @author <a href="https://github.com/zpiste">Piste</a>
  */
 @SuppressWarnings("unused")
 public class RiotAccount {
@@ -15,7 +15,7 @@ public class RiotAccount {
     @SerializedName("tagLine")
     private String tag;
 
-    public String getPuuid() {
+    public String getPUUID() {
         return puuid;
     }
 
@@ -27,7 +27,7 @@ public class RiotAccount {
         return tag;
     }
 
-    public String getRiotId() {
+    public String getRiotID() {
         return name + "#" + tag;
     }
 

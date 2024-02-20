@@ -1,15 +1,12 @@
 package dev.piste.api.val4j.http;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParser;
+import com.google.gson.*;
 import com.google.gson.stream.JsonWriter;
 import com.google.gson.stream.MalformedJsonException;
 import dev.piste.api.val4j.http.enums.ContentType;
-import dev.piste.api.val4j.http.enums.HttpMethod;
-import dev.piste.api.val4j.http.enums.HttpStatus;
-import dev.piste.api.val4j.http.exceptions.HttpStatusException;
+import dev.piste.api.val4j.http.enums.HTTPMethod;
+import dev.piste.api.val4j.http.enums.HTTPStatus;
+import dev.piste.api.val4j.http.exceptions.HTTPStatusException;
 import dev.piste.api.val4j.http.requests.RestRequest;
 
 import javax.net.ssl.SSLContext;
@@ -30,17 +27,17 @@ import java.security.cert.X509Certificate;
 import java.util.Map;
 
 /**
- * @author Piste  (<a href="https://github.com/PisteDev">GitHub</a>)
+ * @author <a href="https://github.com/zpiste">Piste</a>
  */
 public class RestClient {
 
-    private final String baseUrl;
+    private final String baseURL;
     private final Gson gson;
     private HttpClient httpClient;
     private final CookieManager cookieManager;
 
-    public RestClient(String baseUrl) {
-        this.baseUrl = baseUrl;
+    public RestClient(String baseURL) {
+        this.baseURL = baseURL;
         this.gson = new GsonBuilder().setPrettyPrinting().create();
         cookieManager = new CookieManager();
         cookieManager.setCookiePolicy(CookiePolicy.ACCEPT_ALL);
@@ -83,31 +80,34 @@ public class RestClient {
         return this;
     }
 
-    public JsonObject sendRequest(RestRequest restRequest) throws IOException {
-        HttpRequest httpRequest = createHttpRequest(restRequest.getPath(), restRequest.getMethod(), restRequest.getBody(), restRequest.getContentType(), restRequest.getHeaders());
+    public JsonElement sendRequest(RestRequest restRequest) throws IOException {
+        HttpRequest httpRequest = createHTTPRequest(restRequest.getPath(), restRequest.getMethod(), restRequest.getBody(), restRequest.getContentType(), restRequest.getHeaders());
         try {
             HttpResponse<String> response = httpClient.send(httpRequest, HttpResponse.BodyHandlers.ofString());
-            if (!isValidJson(response.body())) {
-                throw new MalformedJsonException("Response body is not valid JSON");
-            }
-            HttpStatus status = HttpStatus.ofCode(response.statusCode());
+            HTTPStatus status = HTTPStatus.ofCode(response.statusCode());
             if (status.isError()) {
+                if (!isValidJSON(response.body())) {
+                    throw new HTTPStatusException(response.statusCode(), response.body(), baseURL + restRequest.getPath(), restRequest.getMethod().toString());
+                }
                 StringWriter bodyWriter = new StringWriter();
                 JsonWriter jsonWriter = new JsonWriter(bodyWriter);
                 jsonWriter.setIndent("  ");
                 gson.toJson(JsonParser.parseString(response.body()).getAsJsonObject(), jsonWriter);
-                throw new HttpStatusException(response.statusCode(), bodyWriter.toString(), baseUrl + restRequest.getPath(), restRequest.getMethod().toString());
+                throw new HTTPStatusException(response.statusCode(), bodyWriter.toString(), baseURL + restRequest.getPath(), restRequest.getMethod().toString());
+            }
+            if (!isValidJSON(response.body())) {
+                throw new MalformedJsonException("Response body is not valid JSON");
             }
             if(response.body().equals("")) return null;
-            return JsonParser.parseString(response.body()).getAsJsonObject();
+            return JsonParser.parseString(response.body());
         } catch (MalformedJsonException | InterruptedException e) {
             throw new RuntimeException(e);
         }
     }
 
-    private HttpRequest createHttpRequest(String path, HttpMethod method, String body, ContentType contentType, Map<String, String> headers) {
+    private HttpRequest createHTTPRequest(String path, HTTPMethod method, String body, ContentType contentType, Map<String, String> headers) {
         HttpRequest.Builder builder = HttpRequest.newBuilder()
-                .uri(URI.create(baseUrl + path))
+                .uri(URI.create(baseURL + path))
                 .method(method.toString(), HttpRequest.BodyPublishers.noBody());
         if(contentType != null) {
             builder.header("Content-Type", contentType.getHeaderValue());
@@ -119,7 +119,7 @@ public class RestClient {
         return builder.build();
     }
 
-    private boolean isValidJson(String json) {
+    private boolean isValidJSON(String json) {
         try {
             JsonParser.parseString(json);
             return true;
@@ -151,6 +151,10 @@ public class RestClient {
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
+    }
+
+    public CookieManager getCookieManager() {
+        return cookieManager;
     }
 
 }

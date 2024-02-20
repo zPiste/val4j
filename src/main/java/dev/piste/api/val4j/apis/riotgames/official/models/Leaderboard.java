@@ -3,13 +3,13 @@ package dev.piste.api.val4j.apis.riotgames.official.models;
 import com.google.gson.annotations.SerializedName;
 
 /**
- * @author Piste  (<a href="https://github.com/PisteDev">GitHub</a>)
+ * @author <a href="https://github.com/zpiste">Piste</a>
  */
 @SuppressWarnings("unused")
 public class Leaderboard {
 
     @SerializedName("actId")
-    private String actUuid;
+    private String actUUID;
     @SerializedName("players")
     private Player[] players;
     @SerializedName("totalPlayers")
@@ -23,8 +23,8 @@ public class Leaderboard {
     @SerializedName("tierDetails")
     private TierDetails tierDetails;
 
-    public String getActUuid() {
-        return actUuid;
+    public String getActUUID() {
+        return actUUID;
     }
 
     public Player[] getPlayers() {
@@ -66,9 +66,9 @@ public class Leaderboard {
         @SerializedName("numberOfWins")
         private int winCount;
         @SerializedName("competitiveTier")
-        private int competitiveTierId;
+        private int competitiveTierID;
 
-        public String getPuuid() {
+        public String getPUUID() {
             return puuid;
         }
 
@@ -92,11 +92,13 @@ public class Leaderboard {
             return winCount;
         }
 
-        public int getCompetitiveTierId() {
-            return competitiveTierId;
+        public int getCompetitiveTierID() {
+            return competitiveTierID;
         }
+
     }
 
+    // TODO: Subject to change, if Riot changes the ranks
     public static class TierDetails {
 
         @SerializedName("24")

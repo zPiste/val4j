@@ -1,4 +1,4 @@
-package dev.piste.api.val4j.apis.riotgames.unofficial.models;
+package dev.piste.api.val4j.apis.riotgames.internal.models;
 
 import com.google.gson.Gson;
 import com.google.gson.annotations.SerializedName;
@@ -9,7 +9,7 @@ import java.time.Instant;
 import java.util.Base64;
 
 /**
- * @author Piste  (<a href="https://github.com/PisteDev">GitHub</a>)
+ * @author <a href="https://github.com/zpiste">Piste</a>
  */
 @SuppressWarnings("unused")
 public class OwnPresence {
@@ -26,7 +26,7 @@ public class OwnPresence {
     }
 
     public OwnPresence setState(PresenceState state) {
-        this.state = state.getId();
+        this.state = state.getID();
         return this;
     }
 

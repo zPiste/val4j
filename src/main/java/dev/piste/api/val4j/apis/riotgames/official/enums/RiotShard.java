@@ -1,14 +1,14 @@
 package dev.piste.api.val4j.apis.riotgames.official.enums;
 
 /**
- * @author Piste  (<a href="https://github.com/PisteDev">GitHub</a>)
+ * @author <a href="https://github.com/zpiste">Piste</a>
  */
+@SuppressWarnings("unused")
 public enum RiotShard {
 
-    EUROPE("eu"),
     NORTH_AMERICA("na"),
-    LATIN_AMERICA("latam"),
-    BRAZIL("br"),
+    PUBLIC_BETA("pbe"),
+    EUROPE("eu"),
     ASIA_PACIFIC("ap"),
     KOREA("kr");
 
@@ -18,17 +18,26 @@ public enum RiotShard {
         this.id = id;
     }
 
-    public String getId() {
+    public String getID() {
         return id;
     }
 
-    public static RiotShard ofId(String id) {
-        for (RiotShard shard : values()) {
-            if (shard.getId().equalsIgnoreCase(id)) {
-                return shard;
+    public static RiotShard ofID(String id) {
+        for (RiotShard riotShard : values()) {
+            if (riotShard.getID().equalsIgnoreCase(id)) {
+                return riotShard;
             }
         }
         return null;
+    }
+
+    public static RiotShard ofRiotRegion(RiotRegion riotRegion) {
+        return switch (riotRegion) {
+            case EUROPE -> EUROPE;
+            case NORTH_AMERICA, LATIN_AMERICA, BRAZIL -> NORTH_AMERICA;
+            case KOREA -> KOREA;
+            case ASIA_PACIFIC -> ASIA_PACIFIC;
+        };
     }
 
 }
