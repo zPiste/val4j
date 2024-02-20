@@ -1,4 +1,4 @@
-package dev.piste.api.val4j.apis.officer.models;
+package dev.piste.api.val4j.apis.asset.models;
 
 import com.google.gson.annotations.SerializedName;
 
@@ -6,9 +6,8 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 /**
- * @author Piste  (<a href="https://github.com/PisteDev">GitHub</a>)
+ * @author <a href="https://github.com/zpiste">Piste</a>
  */
-@SuppressWarnings("unused")
 public class Season {
 
     @SerializedName("uuid")
@@ -22,11 +21,11 @@ public class Season {
     @SerializedName("endTime")
     private String endTimeAsString;
     @SerializedName("parentUuid")
-    private String parentUuid;
+    private String parentUUID;
     @SerializedName("assetPath")
     private String assetPath;
 
-    public String getUuid() {
+    public String getUUID() {
         return uuid;
     }
 
@@ -46,8 +45,8 @@ public class Season {
         return LocalDateTime.parse(endTimeAsString, DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss'Z'"));
     }
 
-    public String getParentUuid() {
-        return parentUuid;
+    public String getParentUUID() {
+        return parentUUID;
     }
 
     public String getAssetPath() {

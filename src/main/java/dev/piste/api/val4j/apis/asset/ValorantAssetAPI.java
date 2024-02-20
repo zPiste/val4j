@@ -1,9 +1,9 @@
-package dev.piste.api.val4j.apis.officer;
+package dev.piste.api.val4j.apis.asset;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonElement;
-import dev.piste.api.val4j.apis.officer.models.*;
+import dev.piste.api.val4j.apis.asset.models.*;
 import dev.piste.api.val4j.http.RestClient;
 import dev.piste.api.val4j.http.requests.GetRequestBuilder;
 import dev.piste.api.val4j.http.requests.RestRequestBuilder;
@@ -13,14 +13,14 @@ import java.io.IOException;
 import java.time.LocalDateTime;
 
 /**
- * @author Piste (<a href="https://github.com/PisteDev">GitHub</a>)
+ * @author <a href="https://github.com/zpiste">Piste</a>
  */
-public class OfficerAPI {
+public class ValorantAssetAPI {
 
     private final RestClient restClient;
     private final Gson gson;
 
-    public OfficerAPI() {
+    public ValorantAssetAPI() {
         String BASE_URL = "https://valorant-api.com";
         restClient = new RestClient(BASE_URL);
         gson = new GsonBuilder().setPrettyPrinting().create();
@@ -143,7 +143,7 @@ public class OfficerAPI {
     public CompetitiveTierTable getCurrentCompetitiveTierTable(APILanguage language) throws IOException {
         for(CompetitiveSeason competitiveSeason : getCompetitiveSeasons()) {
             if(LocalDateTime.now().isAfter(competitiveSeason.getStartDateTime()) && LocalDateTime.now().isBefore(competitiveSeason.getEndDateTime())) {
-                return getCompetitiveTierTable(competitiveSeason.getCompetitiveTierTableUuid(), language);
+                return getCompetitiveTierTable(competitiveSeason.getCompetitiveTierTableUUID(), language);
             }
         }
         return null;
@@ -513,7 +513,7 @@ public class OfficerAPI {
     private <T> T getElement(RestRequestBuilder requestBuilder, APILanguage language, Class<T> clazz) throws IOException {
         if(language != null)
             requestBuilder.addParameter("language", language.getLocale());
-        JsonElement element = restClient.sendRequest(requestBuilder.build()).get("data");
+        JsonElement element = restClient.sendRequest(requestBuilder.build()).getAsJsonObject().get("data");
         if(element.isJsonArray()) {
             return gson.fromJson(element.getAsJsonArray(), clazz);
         } else {

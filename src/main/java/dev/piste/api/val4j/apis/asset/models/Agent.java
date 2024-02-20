@@ -1,12 +1,11 @@
-package dev.piste.api.val4j.apis.officer.models;
+package dev.piste.api.val4j.apis.asset.models;
 
 import com.google.gson.annotations.SerializedName;
-import dev.piste.api.val4j.apis.officer.enums.AbilitySlot;
+import dev.piste.api.val4j.apis.asset.enums.AbilitySlot;
 
 /**
- * @author Piste  (<a href="https://github.com/PisteDev">GitHub</a>)
+ * @author <a href="https://github.com/zpiste">Piste</a>
  */
-@SuppressWarnings("unused")
 public class Agent {
 
     @SerializedName("uuid")
@@ -20,15 +19,15 @@ public class Agent {
     @SerializedName("characterTags")
     private String[] tags;
     @SerializedName("displayIcon")
-    private String iconUrl;
+    private String iconURL;
     @SerializedName("displayIconSmall")
-    private String smallIconUrl;
+    private String smallIconURL;
     @SerializedName("fullPortrait")
-    private String portraitUrl;
+    private String portraitURL;
     @SerializedName("killfeedPortrait")
-    private String killfeedIconUrl;
+    private String killfeedIconURL;
     @SerializedName("background")
-    private String backgroundImageUrl;
+    private String backgroundImageURL;
     @SerializedName("backgroundGradientColors")
     private String[] backgroundGradientColors;
     @SerializedName("assetPath")
@@ -48,7 +47,7 @@ public class Agent {
     @SerializedName("voiceLine")
     private VoiceLine voiceLine;
 
-    public String getUuid() {
+    public String getUUID() {
         return uuid;
     }
 
@@ -68,24 +67,24 @@ public class Agent {
         return tags;
     }
 
-    public String getIconUrl() {
-        return iconUrl;
+    public String getIconURL() {
+        return iconURL;
     }
 
-    public String getSmallIconUrl() {
-        return smallIconUrl;
+    public String getSmallIconURL() {
+        return smallIconURL;
     }
 
-    public String getPortraitUrl() {
-        return portraitUrl;
+    public String getPortraitURL() {
+        return portraitURL;
     }
 
-    public String getKillfeedIconUrl() {
-        return killfeedIconUrl;
+    public String getKillfeedIconURL() {
+        return killfeedIconURL;
     }
 
-    public String getBackgroundImageUrl() {
-        return backgroundImageUrl;
+    public String getBackgroundImageURL() {
+        return backgroundImageURL;
     }
 
     public String[] getBackgroundGradientColors() {
@@ -133,11 +132,11 @@ public class Agent {
         @SerializedName("description")
         private String description;
         @SerializedName("displayIcon")
-        private String iconUrl;
+        private String iconURL;
         @SerializedName("assetPath")
         private String assetPath;
 
-        public String getUuid() {
+        public String getUUID() {
             return uuid;
         }
 
@@ -149,8 +148,8 @@ public class Agent {
             return description;
         }
 
-        public String getIconUrl() {
-            return iconUrl;
+        public String getIconURL() {
+            return iconURL;
         }
 
         public String getAssetPath() {
@@ -162,20 +161,20 @@ public class Agent {
     public static class Ability {
 
         @SerializedName("slot")
-        private String slotId;
+        private String slotID;
         @SerializedName("displayName")
         private String name;
         @SerializedName("description")
         private String description;
         @SerializedName("displayIcon")
-        private String iconUrl;
+        private String iconURL;
 
         public AbilitySlot getSlot() {
-            return AbilitySlot.ofId(slotId.toLowerCase());
+            return AbilitySlot.ofID(slotID.toLowerCase());
         }
 
-        public String getSlotId() {
-            return slotId;
+        public String getSlotID() {
+            return slotID;
         }
 
         public String getName() {
@@ -186,8 +185,8 @@ public class Agent {
             return description;
         }
 
-        public String getIconUrl() {
-            return iconUrl;
+        public String getIconURL() {
+            return iconURL;
         }
 
     }
@@ -218,20 +217,20 @@ public class Agent {
             @SerializedName("id")
             private int id;
             @SerializedName("wwise")
-            private String wwiseFileUrl;
+            private String wwiseFileURL;
             @SerializedName("wave")
-            private String waveFileUrl;
+            private String waveFileURL;
 
-            public int getId() {
+            public int getID() {
                 return id;
             }
 
-            public String getWwiseFileUrl() {
-                return wwiseFileUrl;
+            public String getWwiseFileURL() {
+                return wwiseFileURL;
             }
 
-            public String getWaveFileUrl() {
-                return waveFileUrl;
+            public String getWaveFileURL() {
+                return waveFileURL;
             }
 
         }

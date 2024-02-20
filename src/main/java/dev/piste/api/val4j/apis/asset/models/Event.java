@@ -1,4 +1,4 @@
-package dev.piste.api.val4j.apis.officer.models;
+package dev.piste.api.val4j.apis.asset.models;
 
 import com.google.gson.annotations.SerializedName;
 
@@ -6,9 +6,8 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 /**
- * @author Piste  (<a href="https://github.com/PisteDev">GitHub</a>)
+ * @author <a href="https://github.com/zpiste">Piste</a>
  */
-@SuppressWarnings("unused")
 public class Event {
 
     @SerializedName("uuid")
@@ -24,7 +23,7 @@ public class Event {
     @SerializedName("assetPath")
     private String assetPath;
 
-    public String getUuid() {
+    public String getUUID() {
         return uuid;
     }
 

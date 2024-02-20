@@ -1,11 +1,10 @@
-package dev.piste.api.val4j.apis.officer.models;
+package dev.piste.api.val4j.apis.asset.models;
 
 import com.google.gson.annotations.SerializedName;
 
 /**
- * @author Piste  (<a href="https://github.com/PisteDev">GitHub</a>)
+ * @author <a href="https://github.com/zpiste">Piste</a>
  */
-@SuppressWarnings("unused")
 public class Map {
 
     @SerializedName("uuid")
@@ -15,11 +14,11 @@ public class Map {
     @SerializedName("coordinates")
     private String coordinates;
     @SerializedName("displayIcon")
-    private String minimapImageUrl;
+    private String minimapImageURL;
     @SerializedName("listViewIcon")
-    private String listImageUrl;
+    private String listImageURL;
     @SerializedName("splash")
-    private String largeImageUrl;
+    private String largeImageURL;
     @SerializedName("assetPath")
     private String assetPath;
     @SerializedName("mapUrl")
@@ -35,7 +34,7 @@ public class Map {
     @SerializedName("callouts")
     private Callout[] callouts;
 
-    public String getUuid() {
+    public String getUUID() {
         return uuid;
     }
 
@@ -47,39 +46,39 @@ public class Map {
         return coordinates;
     }
 
-    public String getMinimapImageUrl() {
-        return minimapImageUrl;
+    public String getMinimapImageURL() {
+        return minimapImageURL;
     }
 
-    public String getListImageUrl() {
-        return listImageUrl;
+    public String getListImageURL() {
+        return listImageURL;
     }
 
-    public String getLargeImageUrl() {
-        return largeImageUrl;
+    public String getLargeImageURL() {
+        return largeImageURL;
     }
 
     public String getAssetPath() {
         return assetPath;
     }
 
-    public String getUrl() {
+    public String getURL() {
         return url;
     }
 
-    public double getxMultiplier() {
+    public double getXMultiplier() {
         return xMultiplier;
     }
 
-    public double getyMultiplier() {
+    public double getYMultiplier() {
         return yMultiplier;
     }
 
-    public double getxScalarToAdd() {
+    public double getXScalarToAdd() {
         return xScalarToAdd;
     }
 
-    public double getyScalarToAdd() {
+    public double getYScalarToAdd() {
         return yScalarToAdd;
     }
 

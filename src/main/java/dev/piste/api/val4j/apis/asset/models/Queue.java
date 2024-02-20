@@ -1,11 +1,10 @@
-package dev.piste.api.val4j.apis.officer.models;
+package dev.piste.api.val4j.apis.asset.models;
 
 import com.google.gson.annotations.SerializedName;
 
 /**
- * @author Piste  (<a href="https://github.com/PisteDev">GitHub</a>)
+ * @author <a href="https://github.com/zpiste">Piste</a>
  */
-@SuppressWarnings("unused")
 public class Queue {
 
     @SerializedName("uuid")
@@ -23,15 +22,15 @@ public class Queue {
     @SerializedName("isBeta")
     private boolean beta;
     @SerializedName("displayIcon")
-    private String iconUrl;
+    private String iconURL;
     @SerializedName("assetPath")
     private String assetPath;
 
-    public String getUuid() {
+    public String getUUID() {
         return uuid;
     }
 
-    public String getId() {
+    public String getID() {
         return id;
     }
 
@@ -55,15 +54,15 @@ public class Queue {
         return beta;
     }
 
-    public String getIconUrl() {
-        return iconUrl;
+    public String getIconURL() {
+        return iconURL;
     }
 
     public String getAssetPath() {
         return assetPath;
     }
 
-    public String getParentGameModeUuid() {
+    public String getParentGameModeUUID() {
         return switch (id) {
             case "competitive", "custom", "unrated" -> "96bd3920-4f36-d026-2b28-c683eb0bcac5";
             case "deathmatch" -> "a8790ec5-4237-f2f0-e93b-08a8e89865b2";
@@ -72,6 +71,7 @@ public class Queue {
             case "onefa" -> "4744698a-4513-dc96-9c22-a9aa437e4a58";
             case "snowball" -> "57038d6d-49b1-3a74-c5ef-3395d9f23a97";
             case "spikerush" -> "e921d1e6-416b-c31f-1291-74930c330b7b";
+            case "hurm" -> "e086db66-47fd-e791-ca81-06a645ac7661";
             default -> "unknown";
         };
     }

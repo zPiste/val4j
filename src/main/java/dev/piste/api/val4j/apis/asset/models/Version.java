@@ -1,4 +1,4 @@
-package dev.piste.api.val4j.apis.officer.models;
+package dev.piste.api.val4j.apis.asset.models;
 
 import com.google.gson.annotations.SerializedName;
 
@@ -6,13 +6,12 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 /**
- * @author Piste  (<a href="https://github.com/PisteDev">GitHub</a>)
+ * @author <a href="https://github.com/zpiste">Piste</a>
  */
-@SuppressWarnings("unused")
 public class Version {
 
     @SerializedName("manifestId")
-    private String manifestId;
+    private String manifestID;
     @SerializedName("branch")
     private String branch;
     @SerializedName("version")
@@ -28,8 +27,8 @@ public class Version {
     @SerializedName("buildDate")
     private String buildDateAsString;
 
-    public String getManifestId() {
-        return manifestId;
+    public String getManifestID() {
+        return manifestID;
     }
 
     public String getBranch() {

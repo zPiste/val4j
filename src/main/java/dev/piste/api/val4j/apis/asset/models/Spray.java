@@ -1,11 +1,10 @@
-package dev.piste.api.val4j.apis.officer.models;
+package dev.piste.api.val4j.apis.asset.models;
 
 import com.google.gson.annotations.SerializedName;
 
 /**
- * @author Piste  (<a href="https://github.com/PisteDev">GitHub</a>)
+ * @author <a href="https://github.com/zpiste">Piste</a>
  */
-@SuppressWarnings("unused")
 public class Spray {
 
     @SerializedName("uuid")
@@ -15,23 +14,23 @@ public class Spray {
     @SerializedName("category")
     private String category;
     @SerializedName("themeUuid")
-    private String themeUuid;
+    private String themeUUID;
     @SerializedName("displayIcon")
-    private String iconUrl;
+    private String iconURL;
     @SerializedName("fullIcon")
-    private String fullIconUrl;
+    private String fullIconURL;
     @SerializedName("fullTransparentIcon")
-    private String fullTransparentIconUrl;
+    private String fullTransparentIconURL;
     @SerializedName("animationPng")
-    private String animationPng;
+    private String animationPNGURL;
     @SerializedName("animationGif")
-    private String animationGif;
+    private String animationGIFURL;
     @SerializedName("assetPath")
     private String assetPath;
     @SerializedName("levels")
     private Level[] levels;
 
-    public String getUuid() {
+    public String getUUID() {
         return uuid;
     }
 
@@ -43,28 +42,28 @@ public class Spray {
         return category;
     }
 
-    public String getThemeUuid() {
-        return themeUuid;
+    public String getThemeUUID() {
+        return themeUUID;
     }
 
-    public String getIconUrl() {
-        return iconUrl;
+    public String getIconURL() {
+        return iconURL;
     }
 
-    public String getFullIconUrl() {
-        return fullIconUrl;
+    public String getFullIconURL() {
+        return fullIconURL;
     }
 
-    public String getFullTransparentIconUrl() {
-        return fullTransparentIconUrl;
+    public String getFullTransparentIconURL() {
+        return fullTransparentIconURL;
     }
 
-    public String getAnimationPng() {
-        return animationPng;
+    public String getAnimationPNGURL() {
+        return animationPNGURL;
     }
 
-    public String getAnimationGif() {
-        return animationGif;
+    public String getAnimationGIFURL() {
+        return animationGIFURL;
     }
 
     public String getAssetPath() {
@@ -84,11 +83,11 @@ public class Spray {
         @SerializedName("displayName")
         private String name;
         @SerializedName("displayIcon")
-        private String iconUrl;
+        private String iconURL;
         @SerializedName("assetPath")
         private String assetPath;
 
-        public String getUuid() {
+        public String getUUID() {
             return uuid;
         }
 
@@ -100,8 +99,8 @@ public class Spray {
             return name;
         }
 
-        public String getIconUrl() {
-            return iconUrl;
+        public String getIconURL() {
+            return iconURL;
         }
 
         public String getAssetPath() {

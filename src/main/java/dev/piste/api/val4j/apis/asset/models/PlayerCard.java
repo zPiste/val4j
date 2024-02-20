@@ -1,11 +1,10 @@
-package dev.piste.api.val4j.apis.officer.models;
+package dev.piste.api.val4j.apis.asset.models;
 
 import com.google.gson.annotations.SerializedName;
 
 /**
- * @author Piste  (<a href="https://github.com/PisteDev">GitHub</a>)
+ * @author <a href="https://github.com/zpiste">Piste</a>
  */
-@SuppressWarnings("unused")
 public class PlayerCard {
 
     @SerializedName("uuid")
@@ -15,15 +14,15 @@ public class PlayerCard {
     @SerializedName("isHiddenIfNotOwned")
     private boolean hiddenIfNotOwned;
     @SerializedName("themeUuid")
-    private String themeUuid;
+    private String themeUUID;
     @SerializedName("displayIcon")
-    private String iconUrl;
+    private String iconURL;
     @SerializedName("smallArt")
-    private String smallIconUrl;
+    private String smallIconURL;
     @SerializedName("wideArt")
-    private String wideImageUrl;
+    private String wideImageURL;
     @SerializedName("largeArt")
-    private String largeImageUrl;
+    private String largeImageURL;
     @SerializedName("assetPath")
     private String assetPath;
 
@@ -39,24 +38,24 @@ public class PlayerCard {
         return hiddenIfNotOwned;
     }
 
-    public String getThemeUuid() {
-        return themeUuid;
+    public String getThemeUUID() {
+        return themeUUID;
     }
 
-    public String getIconUrl() {
-        return iconUrl;
+    public String getIconURL() {
+        return iconURL;
     }
 
-    public String getSmallIconUrl() {
-        return smallIconUrl;
+    public String getSmallIconURL() {
+        return smallIconURL;
     }
 
-    public String getWideImageUrl() {
-        return wideImageUrl;
+    public String getWideImageURL() {
+        return wideImageURL;
     }
 
-    public String getLargeImageUrl() {
-        return largeImageUrl;
+    public String getLargeImageURL() {
+        return largeImageURL;
     }
 
     public String getAssetPath() {

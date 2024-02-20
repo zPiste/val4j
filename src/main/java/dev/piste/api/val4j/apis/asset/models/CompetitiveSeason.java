@@ -1,4 +1,4 @@
-package dev.piste.api.val4j.apis.officer.models;
+package dev.piste.api.val4j.apis.asset.models;
 
 import com.google.gson.annotations.SerializedName;
 
@@ -6,9 +6,8 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 /**
- * @author Piste  (<a href="https://github.com/PisteDev">GitHub</a>)
+ * @author <a href="https://github.com/zpiste">Piste</a>
  */
-@SuppressWarnings("unused")
 public class CompetitiveSeason {
 
     @SerializedName("uuid")
@@ -18,15 +17,15 @@ public class CompetitiveSeason {
     @SerializedName("endTime")
     private String endTimeAsString;
     @SerializedName("seasonUuid")
-    private String seasonUuid;
+    private String seasonUUID;
     @SerializedName("competitiveTiersUuid")
-    private String competitiveTierTableUuid;
+    private String competitiveTierTableUUID;
     @SerializedName("borders")
     private Border[] borders;
     @SerializedName("assetPath")
     private String assetPath;
 
-    public String getUuid() {
+    public String getUUID() {
         return uuid;
     }
 
@@ -38,12 +37,12 @@ public class CompetitiveSeason {
         return LocalDateTime.parse(endTimeAsString, DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss'Z'"));
     }
 
-    public String getSeasonUuid() {
-        return seasonUuid;
+    public String getSeasonUUID() {
+        return seasonUUID;
     }
 
-    public String getCompetitiveTierTableUuid() {
-        return competitiveTierTableUuid;
+    public String getCompetitiveTierTableUUID() {
+        return competitiveTierTableUUID;
     }
 
     public Border[] getBorders() {
@@ -63,13 +62,13 @@ public class CompetitiveSeason {
         @SerializedName("winsRequired")
         private int requiredWins;
         @SerializedName("displayIcon")
-        private String iconUrl;
+        private String iconURL;
         @SerializedName("smallIcon")
-        private String smallIconUrl;
+        private String smallIconURL;
         @SerializedName("assetPath")
         private String assetPath;
 
-        public String getUuid() {
+        public String getUUID() {
             return uuid;
         }
 
@@ -81,12 +80,12 @@ public class CompetitiveSeason {
             return requiredWins;
         }
 
-        public String getIconUrl() {
-            return iconUrl;
+        public String getIconURL() {
+            return iconURL;
         }
 
-        public String getSmallIconUrl() {
-            return smallIconUrl;
+        public String getSmallIconURL() {
+            return smallIconURL;
         }
 
         public String getAssetPath() {

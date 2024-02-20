@@ -1,11 +1,10 @@
-package dev.piste.api.val4j.apis.officer.models;
+package dev.piste.api.val4j.apis.asset.models;
 
 import com.google.gson.annotations.SerializedName;
 
 /**
- * @author Piste  (<a href="https://github.com/PisteDev">GitHub</a>)
+ * @author <a href="https://github.com/zpiste">Piste</a>
  */
-@SuppressWarnings("unused")
 public class Theme {
 
     @SerializedName("uuid")
@@ -13,13 +12,13 @@ public class Theme {
     @SerializedName("displayName")
     private String name;
     @SerializedName("displayIcon")
-    private String iconUrl;
+    private String iconURL;
     @SerializedName("storeFeaturedImage")
-    private String storeImageUrl;
+    private String storeImageURL;
     @SerializedName("assetPath")
     private String assetPath;
 
-    public String getUuid() {
+    public String getUUID() {
         return uuid;
     }
 
@@ -27,12 +26,12 @@ public class Theme {
         return name;
     }
 
-    public String getIconUrl() {
-        return iconUrl;
+    public String getIconURL() {
+        return iconURL;
     }
 
-    public String getStoreImageUrl() {
-        return storeImageUrl;
+    public String getStoreImageURL() {
+        return storeImageURL;
     }
 
     public String getAssetPath() {

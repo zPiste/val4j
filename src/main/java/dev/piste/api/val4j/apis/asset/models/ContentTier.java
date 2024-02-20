@@ -1,11 +1,10 @@
-package dev.piste.api.val4j.apis.officer.models;
+package dev.piste.api.val4j.apis.asset.models;
 
 import com.google.gson.annotations.SerializedName;
 
 /**
- * @author Piste  (<a href="https://github.com/PisteDev">GitHub</a>)
+ * @author <a href="https://github.com/zpiste">Piste</a>
  */
-@SuppressWarnings("unused")
 public class ContentTier {
 
     @SerializedName("uuid")
@@ -23,11 +22,11 @@ public class ContentTier {
     @SerializedName("highlightColor")
     private String highlightColor;
     @SerializedName("displayIcon")
-    private String displayIcon;
+    private String iconURL;
     @SerializedName("assetPath")
     private String assetPath;
 
-    public String getUuid() {
+    public String getUUID() {
         return uuid;
     }
 
@@ -55,8 +54,8 @@ public class ContentTier {
         return highlightColor;
     }
 
-    public String getDisplayIcon() {
-        return displayIcon;
+    public String getIconURL() {
+        return iconURL;
     }
 
     public String getAssetPath() {

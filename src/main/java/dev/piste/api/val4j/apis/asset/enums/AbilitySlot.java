@@ -1,7 +1,7 @@
-package dev.piste.api.val4j.apis.officer.enums;
+package dev.piste.api.val4j.apis.asset.enums;
 
 /**
- * @author Piste  (<a href="https://github.com/PisteDev">GitHub</a>)
+ * @author <a href="https://github.com/zpiste">Piste</a>
  */
 public enum AbilitySlot {
 
@@ -9,8 +9,8 @@ public enum AbilitySlot {
     ABILITY_2("ability2", 'E'),
     GRENADE("grenade", 'C'),
     ULTIMATE("ultimate", 'X'),
-    PASSIVE("passive", '-'),
-    UNKNOWN("unknown", '?');
+    PASSIVE("passive", (char) 0),
+    UNKNOWN("unknown", (char) 0);
 
     private final String id;
     private final char defaultKey;
@@ -20,7 +20,7 @@ public enum AbilitySlot {
         this.defaultKey = defaultKey;
     }
 
-    public String getId() {
+    public String getID() {
         return id;
     }
 
@@ -32,9 +32,9 @@ public enum AbilitySlot {
         return this != UNKNOWN && this != PASSIVE;
     }
 
-    public static AbilitySlot ofId(String id) {
+    public static AbilitySlot ofID(String id) {
         for (AbilitySlot abilitySlot : values()) {
-            if (abilitySlot.getId().equalsIgnoreCase(id)) {
+            if (abilitySlot.getID().equalsIgnoreCase(id)) {
                 return abilitySlot;
             }
         }

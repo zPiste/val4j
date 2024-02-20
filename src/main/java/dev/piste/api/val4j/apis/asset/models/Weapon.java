@@ -1,11 +1,10 @@
-package dev.piste.api.val4j.apis.officer.models;
+package dev.piste.api.val4j.apis.asset.models;
 
 import com.google.gson.annotations.SerializedName;
 
 /**
- * @author Piste  (<a href="https://github.com/PisteDev">GitHub</a>)
+ * @author <a href="https://github.com/zpiste">Piste</a>
  */
-@SuppressWarnings("unused")
 public class Weapon {
 
     @SerializedName("uuid")
@@ -15,11 +14,11 @@ public class Weapon {
     @SerializedName("category")
     private String category;
     @SerializedName("defaultSkinUuid")
-    private String defaultSkinUuid;
+    private String defaultSkinUUID;
     @SerializedName("displayIcon")
-    private String iconUrl;
+    private String iconURL;
     @SerializedName("killStreamIcon")
-    private String killfeedIconUrl;
+    private String killStreamIconURL;
     @SerializedName("assetPath")
     private String assetPath;
     @SerializedName("weaponStats")
@@ -29,7 +28,7 @@ public class Weapon {
     @SerializedName("skins")
     private WeaponSkin[] skins;
 
-    public String getUuid() {
+    public String getUUID() {
         return uuid;
     }
 
@@ -41,16 +40,16 @@ public class Weapon {
         return category;
     }
 
-    public String getDefaultSkinUuid() {
-        return defaultSkinUuid;
+    public String getDefaultSkinUUID() {
+        return defaultSkinUUID;
     }
 
-    public String getIconUrl() {
-        return iconUrl;
+    public String getIconURL() {
+        return iconURL;
     }
 
-    public String getKillfeedIconUrl() {
-        return killfeedIconUrl;
+    public String getKillStreamIconURL() {
+        return killStreamIconURL;
     }
 
     public String getAssetPath() {
@@ -281,7 +280,7 @@ public class Weapon {
         @SerializedName("canBeTrashed")
         private boolean trashable;
         @SerializedName("newImage")
-        private String imageUrl;
+        private String imageURL;
         @SerializedName("assetPath")
         private String assetPath;
 
@@ -305,8 +304,8 @@ public class Weapon {
             return trashable;
         }
 
-        public String getImageUrl() {
-            return imageUrl;
+        public String getImageURL() {
+            return imageURL;
         }
 
         public String getAssetPath() {

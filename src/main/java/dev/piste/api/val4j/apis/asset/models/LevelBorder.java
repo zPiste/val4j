@@ -1,11 +1,10 @@
-package dev.piste.api.val4j.apis.officer.models;
+package dev.piste.api.val4j.apis.asset.models;
 
 import com.google.gson.annotations.SerializedName;
 
 /**
- * @author Piste  (<a href="https://github.com/PisteDev">GitHub</a>)
+ * @author <a href="https://github.com/zpiste">Piste</a>
  */
-@SuppressWarnings("unused")
 public class LevelBorder {
 
     @SerializedName("uuid")
@@ -13,13 +12,13 @@ public class LevelBorder {
     @SerializedName("startingLevel")
     private int startingLevel;
     @SerializedName("levelNumberAppearance")
-    private String iconUrl;
+    private String iconURL;
     @SerializedName("smallPlayerCardAppearance")
-    private String smallPlayerCardIconUrl;
+    private String smallPlayerCardIconURL;
     @SerializedName("assetPath")
     private String assetPath;
 
-    public String getUuid() {
+    public String getUUID() {
         return uuid;
     }
 
@@ -27,12 +26,12 @@ public class LevelBorder {
         return startingLevel;
     }
 
-    public String getIconUrl() {
-        return iconUrl;
+    public String getIconURL() {
+        return iconURL;
     }
 
-    public String getSmallPlayerCardIconUrl() {
-        return smallPlayerCardIconUrl;
+    public String getSmallPlayerCardIconURL() {
+        return smallPlayerCardIconURL;
     }
 
     public String getAssetPath() {

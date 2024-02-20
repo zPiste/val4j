@@ -1,11 +1,10 @@
-package dev.piste.api.val4j.apis.officer.models;
+package dev.piste.api.val4j.apis.asset.models;
 
 import com.google.gson.annotations.SerializedName;
 
 /**
- * @author Piste  (<a href="https://github.com/PisteDev">GitHub</a>)
+ * @author <a href="https://github.com/zpiste">Piste</a>
  */
-@SuppressWarnings("unused")
 public class WeaponSkin {
 
     @SerializedName("uuid")
@@ -13,13 +12,13 @@ public class WeaponSkin {
     @SerializedName("displayName")
     private String name;
     @SerializedName("themeUuid")
-    private String themeUuid;
+    private String themeUUID;
     @SerializedName("contentTierUuid")
-    private String contentTierUuid;
+    private String contentTierUUID;
     @SerializedName("displayIcon")
-    private String iconUrl;
+    private String iconURL;
     @SerializedName("wallpaper")
-    private String wallpaperImageUrl;
+    private String wallpaperImageURL;
     @SerializedName("assetPath")
     private String assetPath;
     @SerializedName("chromas")
@@ -27,7 +26,7 @@ public class WeaponSkin {
     @SerializedName("levels")
     private Level[] levels;
 
-    public String getUuid() {
+    public String getUUID() {
         return uuid;
     }
 
@@ -35,20 +34,20 @@ public class WeaponSkin {
         return name;
     }
 
-    public String getThemeUuid() {
-        return themeUuid;
+    public String getThemeUUID() {
+        return themeUUID;
     }
 
-    public String getContentTierUuid() {
-        return contentTierUuid;
+    public String getContentTierUUID() {
+        return contentTierUUID;
     }
 
-    public String getIconUrl() {
-        return iconUrl;
+    public String getIconURL() {
+        return iconURL;
     }
 
-    public String getWallpaperImageUrl() {
-        return wallpaperImageUrl;
+    public String getWallpaperImageURL() {
+        return wallpaperImageURL;
     }
 
     public String getAssetPath() {
@@ -70,17 +69,17 @@ public class WeaponSkin {
         @SerializedName("displayName")
         private String name;
         @SerializedName("displayIcon")
-        private String iconUrl;
+        private String iconURL;
         @SerializedName("fullRender")
-        private String fullImageUrl;
+        private String fullImageURL;
         @SerializedName("swatch")
-        private String colorIconUrl;
+        private String colorIconURL;
         @SerializedName("streamedVideo")
-        private String videoUrl;
+        private String videoURL;
         @SerializedName("assetPath")
         private String assetPath;
 
-        public String getUuid() {
+        public String getUUID() {
             return uuid;
         }
 
@@ -88,20 +87,20 @@ public class WeaponSkin {
             return name;
         }
 
-        public String getIconUrl() {
-            return iconUrl;
+        public String getIconURL() {
+            return iconURL;
         }
 
-        public String getFullImageUrl() {
-            return fullImageUrl;
+        public String getFullImageURL() {
+            return fullImageURL;
         }
 
-        public String getColorIconUrl() {
-            return colorIconUrl;
+        public String getColorIconURL() {
+            return colorIconURL;
         }
 
-        public String getVideoUrl() {
-            return videoUrl;
+        public String getVideoURL() {
+            return videoURL;
         }
 
         public String getAssetPath() {
@@ -119,13 +118,13 @@ public class WeaponSkin {
         @SerializedName("levelItem")
         private String levelItem;
         @SerializedName("displayIcon")
-        private String iconUrl;
+        private String iconURL;
         @SerializedName("streamedVideo")
-        private String videoUrl;
+        private String videoURL;
         @SerializedName("assetPath")
         private String assetPath;
 
-        public String getUuid() {
+        public String getUUID() {
             return uuid;
         }
 
@@ -137,12 +136,12 @@ public class WeaponSkin {
             return levelItem;
         }
 
-        public String getIconUrl() {
-            return iconUrl;
+        public String getIconURL() {
+            return iconURL;
         }
 
-        public String getVideoUrl() {
-            return videoUrl;
+        public String getVideoURL() {
+            return videoURL;
         }
 
         public String getAssetPath() {

@@ -1,11 +1,10 @@
-package dev.piste.api.val4j.apis.officer.models;
+package dev.piste.api.val4j.apis.asset.models;
 
 import com.google.gson.annotations.SerializedName;
 
 /**
- * @author Piste  (<a href="https://github.com/PisteDev">GitHub</a>)
+ * @author <a href="https://github.com/zpiste">Piste</a>
  */
-@SuppressWarnings("unused")
 public class CompetitiveTierTable {
 
     @SerializedName("uuid")
@@ -15,7 +14,7 @@ public class CompetitiveTierTable {
     @SerializedName("tiers")
     private Tier[] tiers;
 
-    public String getUuid() {
+    public String getUUID() {
         return uuid;
     }
 
@@ -42,15 +41,15 @@ public class CompetitiveTierTable {
         @SerializedName("backgroundColor")
         private String backgroundColor;
         @SerializedName("smallIcon")
-        private String smallIconUrl;
+        private String smallIconURL;
         @SerializedName("largeIcon")
-        private String largeIconUrl;
+        private String largeIconURL;
         @SerializedName("rankTriangleDownIcon")
-        private String triangleDownIconUrl;
+        private String triangleDownIconURL;
         @SerializedName("rankTriangleUpIcon")
-        private String triangleUpIconUrl;
+        private String triangleUpIconURL;
 
-        public int getId() {
+        public int getID() {
             return id;
         }
 
@@ -74,20 +73,20 @@ public class CompetitiveTierTable {
             return backgroundColor;
         }
 
-        public String getSmallIconUrl() {
-            return smallIconUrl;
+        public String getSmallIconURL() {
+            return smallIconURL;
         }
 
-        public String getLargeIconUrl() {
-            return largeIconUrl;
+        public String getLargeIconURL() {
+            return largeIconURL;
         }
 
-        public String getTriangleDownIconUrl() {
-            return triangleDownIconUrl;
+        public String getTriangleDownIconURL() {
+            return triangleDownIconURL;
         }
 
-        public String getTriangleUpIconUrl() {
-            return triangleUpIconUrl;
+        public String getTriangleUpIconURL() {
+            return triangleUpIconURL;
         }
 
     }

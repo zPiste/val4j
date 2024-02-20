@@ -1,11 +1,10 @@
-package dev.piste.api.val4j.apis.officer.models;
+package dev.piste.api.val4j.apis.asset.models;
 
 import com.google.gson.annotations.SerializedName;
 
 /**
- * @author Piste  (<a href="https://github.com/PisteDev">GitHub</a>)
+ * @author <a href="https://github.com/zpiste">Piste</a>
  */
-@SuppressWarnings("unused")
 public class Contract {
 
     @SerializedName("uuid")
@@ -13,17 +12,17 @@ public class Contract {
     @SerializedName("displayName")
     private String name;
     @SerializedName("displayIcon")
-    private String iconUrl;
+    private String iconURL;
     @SerializedName("shipIt")
     private boolean shipIt;
     @SerializedName("freeRewardScheduleUuid")
-    private String freeRewardScheduleUuid;
+    private String freeRewardScheduleUUID;
     @SerializedName("content")
     private Content content;
     @SerializedName("assetPath")
     private String assetPath;
 
-    public String getUuid() {
+    public String getUUID() {
         return uuid;
     }
 
@@ -31,8 +30,8 @@ public class Contract {
         return name;
     }
 
-    public String getIconUrl() {
-        return iconUrl;
+    public String getIconURL() {
+        return iconURL;
     }
 
     public boolean isShipIt() {
@@ -40,7 +39,7 @@ public class Contract {
     }
 
     public String getFreeRewardScheduleUUID() {
-        return freeRewardScheduleUuid;
+        return freeRewardScheduleUUID;
     }
 
     public Content getContent() {
@@ -56,20 +55,20 @@ public class Contract {
         @SerializedName("relationType")
         private String relationType;
         @SerializedName("relationUuid")
-        private String relationUuid;
+        private String relationUUID;
         @SerializedName("chapters")
         private Chapter[] chapters;
         @SerializedName("premiumRewardScheduleUuid")
-        private String premiumRewardScheduleUuid;
+        private String premiumRewardScheduleUUID;
         @SerializedName("premiumVPCost")
-        private int premiumVpPrice;
+        private int premiumVPPrice;
 
         public String getRelationType() {
             return relationType;
         }
 
-        public String getRelationUuid() {
-            return relationUuid;
+        public String getRelationUUID() {
+            return relationUUID;
         }
 
         public Chapter[] getChapters() {
@@ -77,11 +76,11 @@ public class Contract {
         }
 
         public String getPremiumRewardScheduleUUID() {
-            return premiumRewardScheduleUuid;
+            return premiumRewardScheduleUUID;
         }
 
-        public int getPremiumVpPrice() {
-            return premiumVpPrice;
+        public int getPremiumVPPrice() {
+            return premiumVPPrice;
         }
 
         public static class Chapter {
@@ -112,24 +111,36 @@ public class Contract {
                 @SerializedName("xp")
                 private int xp;
                 @SerializedName("vpCost")
-                private int price;
-                @SerializedName("isPurchaseable")
-                private boolean purchaseable;
+                private int vpPrice;
+                @SerializedName("doughCost")
+                private int doughPrice;
+                @SerializedName("isPurchasableWithVP")
+                private boolean purchasableWithVP;
+                @SerializedName("isPurchasableWithDough")
+                private boolean purchasableWithDough;
 
                 public Reward getReward() {
                     return reward;
                 }
 
-                public int getXp() {
+                public int getXP() {
                     return xp;
                 }
 
-                public int getPrice() {
-                    return price;
+                public int getVPPrice() {
+                    return vpPrice;
                 }
 
-                public boolean isPurchaseable() {
-                    return purchaseable;
+                public int getDoughPrice() {
+                    return doughPrice;
+                }
+
+                public boolean isPurchasableWithVP() {
+                    return purchasableWithVP;
+                }
+
+                public boolean isPurchasableWithDough() {
+                    return purchasableWithDough;
                 }
 
             }
@@ -149,7 +160,7 @@ public class Contract {
                     return type;
                 }
 
-                public String getUuid() {
+                public String getUUID() {
                     return uuid;
                 }
 

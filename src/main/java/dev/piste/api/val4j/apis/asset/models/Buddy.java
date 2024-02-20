@@ -1,11 +1,10 @@
-package dev.piste.api.val4j.apis.officer.models;
+package dev.piste.api.val4j.apis.asset.models;
 
 import com.google.gson.annotations.SerializedName;
 
 /**
- * @author Piste  (<a href="https://github.com/PisteDev">GitHub</a>)
+ * @author <a href="https://github.com/zpiste">Piste</a>
  */
-@SuppressWarnings("unused")
 public class Buddy {
 
     @SerializedName("uuid")
@@ -15,15 +14,15 @@ public class Buddy {
     @SerializedName("isHiddenIfNotOwned")
     private boolean hiddenIfNotOwned;
     @SerializedName("themeUuid")
-    private String themeUuid;
+    private String themeUUID;
     @SerializedName("displayIcon")
-    private String iconUrl;
+    private String iconURL;
     @SerializedName("assetPath")
     private String assetPath;
     @SerializedName("levels")
     private Level[] levels;
 
-    public String getUuid() {
+    public String getUUID() {
         return uuid;
     }
 
@@ -35,12 +34,12 @@ public class Buddy {
         return hiddenIfNotOwned;
     }
 
-    public String getThemeUuid() {
-        return themeUuid;
+    public String getThemeUUID() {
+        return themeUUID;
     }
 
-    public String getIconUrl() {
-        return iconUrl;
+    public String getIconURL() {
+        return iconURL;
     }
 
     public String getAssetPath() {
@@ -60,11 +59,11 @@ public class Buddy {
         @SerializedName("displayName")
         private String name;
         @SerializedName("displayIcon")
-        private String iconUrl;
+        private String iconURL;
         @SerializedName("assetPath")
         private String assetPath;
 
-        public String getUuid() {
+        public String getUUID() {
             return uuid;
         }
 
@@ -76,8 +75,8 @@ public class Buddy {
             return name;
         }
 
-        public String getIconUrl() {
-            return iconUrl;
+        public String getIconURL() {
+            return iconURL;
         }
 
         public String getAssetPath() {
