@@ -707,7 +707,7 @@ public class Match {
             public static class Damage {
 
                 @SerializedName("receiver")
-                private String receiverPlayerUUID;
+                private String receiverUUID;
                 @SerializedName("damage")
                 private int damageCount;
                 @SerializedName("legshots")
@@ -717,8 +717,8 @@ public class Match {
                 @SerializedName("headshots")
                 private int headshotCount;
 
-                public String getReceiverPlayerUUID() {
-                    return receiverPlayerUUID;
+                public String getReceiverUUID() {
+                    return receiverUUID;
                 }
 
                 public int getDamageCount() {
@@ -779,7 +779,7 @@ public class Match {
         public static class PlayerEconomy {
 
             @SerializedName("subject")
-            private String puuid;
+            private String playerUUID;
             @SerializedName("loadoutValue")
             private int loadoutValue;
             @SerializedName("weapon")
@@ -791,8 +791,8 @@ public class Match {
             @SerializedName("spent")
             private int spent;
 
-            public String getPuuid() {
-                return puuid;
+            public String getPlayerUUID() {
+                return playerUUID;
             }
 
             public int getLoadoutValue() {
