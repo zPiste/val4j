@@ -15,7 +15,7 @@ public class UserInfo {
     @SerializedName("country")
     private String countryCode;
     @SerializedName("sub")
-    private String puuid;
+    private String playerUUID;
     @SerializedName("email_verified")
     private boolean emailVerified;
     @SerializedName("player_plocale")
@@ -47,8 +47,8 @@ public class UserInfo {
         return countryCode;
     }
 
-    public String getPUUID() {
-        return puuid;
+    public String getPlayerUUID() {
+        return playerUUID;
     }
 
     public boolean isEmailVerified() {
